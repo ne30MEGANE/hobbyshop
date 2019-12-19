@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hobbyshop</title>
+    <title><%= page_title %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="https://mtsg.github.io/kitstrap/d/kitstrap.css">
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+		  <%= render "shared/header" %>
+		</header>
+		<main>
+		  <%= yield %>
+		</main>
+		<footer>
+		  <%= render "shared/footer" %>
+		</footer>
   </body>
 </html>
