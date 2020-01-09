@@ -1,29 +1,4 @@
 class Review < ApplicationRecord
-    def index
-
-    end
-
-    def show
-
-    end
-
-    def new
-
-    end
-    
-    def edit
-
-    end
-
-    def create
-
-    end
-
-    def update
-
-    end
-
-    def destroy
-        
-    end
+  belongs_to :user
+  belongs_to :item
 end
