@@ -20,7 +20,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "items#index"
-    resource :items do
+    resources :admins 
+    resources :items do
       get "search", on: :collection
     end
   end
