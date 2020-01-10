@@ -9,10 +9,11 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index]
   end
   resources :reviews
-  resources :users
+  resources :users do
+    resource :session, only: [:new, :create, :destroy]
+  end
   resources :orders
 
-  resource :session, only: [:new, :create, :destroy]
   resource :account, only: [:edit, :update]
   resource :cart, only: [:index, :update] do
     delete "delete", on: :collection

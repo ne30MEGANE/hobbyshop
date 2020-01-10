@@ -1,1 +1,8 @@
 <h1>HOBBY SHOP NS</h1>
+<% if singed_in? %>
+  <ul class="account-menu">
+    <%= singed_in?.name + "様" %>
+    <%= menu_link_to "サインアウト", :session, method: :delete,
+        data: { confirm: "ログアウトしますか？"} %>
+  </ul>
+<% end %>
