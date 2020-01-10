@@ -5,4 +5,11 @@
     <%= menu_link_to "サインアウト", '/logout', method: :delete,
         data: { confirm: "ログアウトしますか？"} %>
   </ul>
+<% else %>
+  <% if request.path_info != '/login' %>
+    <ul class="account-menu">
+      <%= "ゲスト様" %>
+      <%= menu_link_to "サインイン", '/login'%>
+    </ul>
+  <% end %>
 <% end %>
