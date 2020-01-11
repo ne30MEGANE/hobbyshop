@@ -21,7 +21,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "items#index"
-    resources :admins 
+    get "login" => "sessions#new"
+    post "login" => "sessions#create"
+    delete "logout" => "sessions#destroy"
+    resources :admins do
+      resource :admin_session, only: [:new, :create, :destroy]
+    end
     resources :items do
       get "search", on: :collection
     end
