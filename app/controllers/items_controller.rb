@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  def index
-    
+  def index #トップページ
+    @items = Item.order("releace")
   end
 end

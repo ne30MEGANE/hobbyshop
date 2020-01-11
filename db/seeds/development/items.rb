@@ -1,5 +1,5 @@
 categorirs = %w(manuel comic CD/DVD software hardware goods)
-date = %w(2020-01-01 2020-02-01)
+date = %w(2019-11-01 2019-12-01 2020-01-01 2020-02-01)
 0.upto(50) do |i|
     Item.create(
         category_id: i % 6,
@@ -7,6 +7,6 @@ date = %w(2020-01-01 2020-02-01)
         item_details: "ホビーショップNS限定販売品です！",
         stock: 10,
         price: 300*(i+1),
-        releace: "#{date[i%2]}" #1/1 or 2/1
+        releace: "#{date[i%4]}"
     )
 end

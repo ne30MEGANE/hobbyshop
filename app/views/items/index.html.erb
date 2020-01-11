@@ -1,0 +1,17 @@
+<div class="paragraph">
+    <p>
+        新商品を続々入荷中！ゲームを買うならホビーショップNS！
+    </p>
+</div>
+<% if @items.present? %>
+    <div class="items">
+        <% @items.each do |item| %>
+            <div class="item_box">
+                <h4><%= item.item_name %></h4>
+                <h6><%= item.price %> 円</h6>
+            </div>
+        <% end %>
+    </div>
+<% else %>
+    <p>商品がないか、商品一覧の取得に失敗しました</p>
+<% end %>
