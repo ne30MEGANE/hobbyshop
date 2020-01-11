@@ -13,3 +13,56 @@
  *= require_tree .
  *= require_self
  */
+
+ /* 全体のやつ */
+body{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+main{
+    padding: 0 10%;
+}
+.paragraph{
+    background-color: beige;
+    border-left: darkgreen solid 5px;
+    padding: 5px 3px;
+}
+footer{
+    text-align: center;
+}
+.debug{
+    background-color: darkgreen;
+    color: whitesmoke;
+    text-align: center;
+}
+/* アラート */
+.alert{
+    color: tomato;
+}
+/* ヘッダー */
+.account-menu{
+    text-align: right;
+    list-style-type: none;
+}
+.account-menu li{
+    display: inline;
+}
+.textbox{
+    position: relative;
+    padding: 15px 5%;
+}
+.textbox input[type='text'], input[type='password']{
+    padding: 10px;
+    margin: 7px;
+    border-radius: 5px;
+    border: olive 1px solid;
+    transition: 0.3s;
+}
+.textbox input[type='text']:focus, input[type='password']:focus{
+    border: yellowgreen 1px solid;
+    box-shadow: 0 0 4px 1px rgba(100,200,100,.5);
+}
+.textbox input[type='submit']{
+
+}

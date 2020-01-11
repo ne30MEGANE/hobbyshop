@@ -1,14 +1,14 @@
 <h2>サインイン</h2>
-<div>
+<div class="paragraph">
   <p>メールアドレスとパスワードを入力してサインインしてください</p>
 </div>
 <% if flash.alert %>
     <p class="alert"><%= flash.alert %></p>
 <% end %>
 <%= form_tag '/login', id: "login_form" do %>
-  <div>
+  <div class="textbox">
     <input type="text" name="email" placeholder="メールアドレス">
     <input type="password" name="password" placeholder="パスワード">
-    <input type="submit" value="サインイン">
+    <input type="submit" value="サインイン" class="submit">
   </div>
 <% end %>
