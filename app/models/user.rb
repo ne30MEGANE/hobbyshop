@@ -17,4 +17,7 @@ class User < ApplicationRecord
       allow_blank: true,
       message: :invalid_postcode
     }
+
+    attr_accessor :current_password
+    validates :password, presence: {if: :current_password }
 end

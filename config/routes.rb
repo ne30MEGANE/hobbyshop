@@ -8,13 +8,17 @@ Rails.application.routes.draw do
     get "search", on: :collection
     resources :reviews, only: [:index]
   end
-  resources :reviews
-  resources :users do
-    resource :session, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create] do
+    resources :reviews
+    
   end
+
+  resource :session, only: [:new, :create, :destroy]
+  resource :account, only: [:edit, :update]
+  resource :password, only: [:show, :edit, :update]
+
   resources :orders
 
-  resource :account, only: [:edit, :update]
   resource :cart, only: [:index, :update] do
     delete "delete", on: :collection
   end
