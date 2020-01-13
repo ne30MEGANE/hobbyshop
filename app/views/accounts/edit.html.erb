@@ -1,0 +1,15 @@
+<% @page_title = "会員情報確認" %>
+
+<h2><%= @page_title %></h2>
+<div class="paragraph">
+  <p>
+    会員情報の確認と更新を行うことができます<br>
+    <br>
+    パスワードの更新は<%= link_to  "こちら", :edit_password %>から行えます
+  </p>
+</div>
+
+<%= form_for @user do |form| %>
+  <%= render "shared/user_form", form: form %>
+  <div><%= form.submit "更新" %></div>
+<% end %>
