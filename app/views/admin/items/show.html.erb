@@ -5,16 +5,16 @@
   <%= @item.item_details %>
   <table>
     <tr>
-      <th>商品名</th><td><% @item.item_name %></td>
+      <th>商品名</th><td><%= @item.item_name %></td>
     </tr>
     <tr>
-      <th>カテゴリ</th><td><%  %></td>
+      <th>カテゴリ</th><td><%= @item.category.category_name %></td>
     </tr>
     <tr>
-      <th>価格</th><td><% @item.price %></td>
+      <th>価格</th><td><%= @item.price %></td>
     </tr>
     <tr>
-      <th>発売日</th><td><% @item.releace&.strftime("%Y年%m月%d日") %></td>
+      <th>発売日</th><td><%= @item.releace&.strftime("%Y年%m月%d日") %></td>
     </tr>
   </table>
   <% if @item.stock < 5 %>
