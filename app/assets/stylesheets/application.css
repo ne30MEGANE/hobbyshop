@@ -66,6 +66,10 @@ footer{
 .textbox input[type='submit']{
 
 }
+.title a{
+    text-decoration: none;
+    color: olivedrab;
+}
 /* 商品概要 */
 .items{
     display: flex;
