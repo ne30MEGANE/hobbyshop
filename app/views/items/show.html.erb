@@ -1,0 +1,23 @@
+<% @page_title = @item.item_name %>
+
+<h2><%= @item.item_name %></h2>
+<div class="paragraph">
+  <%= @item.item_details %>
+  <table>
+    <tr>
+      <th>商品名</th><th><% @item.item_name %></th>
+    </tr>
+    <tr>
+      <th>カテゴリ</th><th><%  %></th>
+    </tr>
+    <tr>
+      <th>価格</th><th><% @item.price %></th>
+    </tr>
+    <tr>
+      <th>発売日</th><th><% @item.releace&.strftime("%Y年%m月%d日") %></th>
+    </tr>
+  </table>
+  <% if @item.stock < 5 %>
+    <p>在庫が残りわずかの商品です！</p>
+  <% end %>
+</div>
