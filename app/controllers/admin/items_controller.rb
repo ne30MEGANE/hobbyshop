@@ -4,6 +4,6 @@ class Admin::ItemsController < Admin::Base
   end
 
   def show #商品詳細
-    @item = Item.find([params[:id]])
+    @item = Item.find(params[:id])
   end
 end
