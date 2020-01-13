@@ -1,0 +1,35 @@
+ja:
+  activerecord:
+    models:
+      user: 会員
+    attributes:
+      user:
+        user_name: ユーザー名
+        nickname: ニックネーム
+        sex: 性別
+        phone: 電話番号
+        email: メールアドレス
+        birthday: 生年月日
+        postcode: 郵便番号
+        address: 住所
+        password: パスワード
+      item:
+        item_name: 商品名
+        item_details: 商品説明
+        stock: 在庫数
+        price: 価格
+        releace: 発売日
+      review:
+        score: スコア
+        text: レビュー内容
+      order:
+        time: 注文日時
+        pay: 合計金額
+        delivery: 発送
+        cancel: キャンセル
+      detail:
+        quantity: 個数
+    errors:
+      messages:
+        invalid_telephone_number: は半角数字と()-のみで入力してください
+        invalid_postcode: の書式が正しくありません
