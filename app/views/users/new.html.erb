@@ -1,0 +1,21 @@
+<% @page_title = "新規会員登録" %>
+
+<h2><%= @page_title %></h2>
+<div class="paragraph">
+  <p>
+    必要事項を記入し、会員登録をおこなってください<br>
+    正しいお名前・住所を登録しない場合、商品が正しく配送されないなどの事故につながります<br>
+    <br>
+    ニックネームは商品レビューを書いた際に表示される名前です<br>
+    <br>
+    ログインは登録されたメールアドレスとパスワードで行います<br>
+    紛失しないよう大切に保管してください<br>
+    <br>
+    会員登録がお済みの方は<%= link_to "サインイン", '/login' %>
+  </p>
+</div>
+
+<%= form_for @user do |form| %>
+  <%= render "shared/user_form", form: form %>
+  <div><%= form.submit "登録" %></div>
+<% end %>

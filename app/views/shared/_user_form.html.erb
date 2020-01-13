@@ -1,0 +1,49 @@
+<%= render "shared/errors", obj: @user %>
+
+<table>
+    <tr>
+        <th><%= form.label :nickname %></th>
+        <td><%= form.text_field :nickname %></td>
+    </tr>
+    <tr>
+        <th><%= User.human_attribute_name(:sex) %></th>
+        <td>
+            <%= form.radio_button :sex, 1 %>
+            <%= form.label :sex_1 %>
+            <%= form.radio_button :sex, 2 %>
+            <%= form.label :sex_2 %>
+            <%= form.radio_button :sex, 3 %>
+            <%= form.label :sex_3 %>
+        </td>
+    </tr>
+    <tr>
+        <th><%= form.label :birthday %></th>
+        <td><%= form.date_select :birthday, start_year: 1940, end_year: Time.current.year, use_month_numbers: true %></td>
+    </tr>
+    <tr>
+        <th><%= form.label :email %></th>
+        <td><%= form.text_field :email %></td>
+    </tr>
+    <tr>
+        <th><%= form.label :phone %></th>
+        <td><%= form.text_field :phone %></td>
+    </tr>
+    <tr>
+        <th><%= form.label :user_name %></th>
+        <td><%= form.text_field :user_name %></td>
+    </tr>
+    <tr>
+        <th><%= form.label :postcode %></th>
+        <td><%= form.text_field :postcode %></td>
+    </tr>
+    <tr>
+        <th><%= form.label :address %></th>
+        <td><%= form.text_field :address %></td>
+    </tr>
+    <% if @user.new_record? %>
+        <tr>
+            <th><%= form.label :password %></th>
+            <td><%= form.text_field :password %></td>
+        </tr>
+    <% end %>
+</table>
