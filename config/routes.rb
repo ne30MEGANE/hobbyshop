@@ -17,11 +17,14 @@ Rails.application.routes.draw do
   resource :account, only: [:edit, :update]
   resource :password, only: [:show, :edit, :update]
 
-  resources :orders
+  resources :orders, only: [:index]
+  post '/add_item' => 'orders#add_item'
+  post '/update_item' => 'orders#update_item'
+  delete '/delete_item' => 'orders#delete_item'
 
-  resource :cart, only: [:index, :update] do
-    delete "delete", on: :collection
-  end
+  # resource :cart, only: [:index, :update] do #orderコントローラーで実装するかも
+  #   delete "delete", on: :collection
+  # end
 
   namespace :admin do
     root "items#index"

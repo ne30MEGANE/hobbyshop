@@ -17,7 +17,16 @@
       <th>発売日</th><td><%= @item.releace&.strftime("%Y年%m月%d日") %></td>
     </tr>
   </table>
-  <% if @item.stock < 5 %>
+
+  <% if (@item.stock < 5) && (@item.stock > 0) %>
     <p>在庫が残りわずかの商品です！</p>
+  <% end %>
+
+  <% if @item.stock != 0 %>
+    <%= form_tag '/add_item' do %>
+      <%= hidden_field_tag(:item_id, @item.id) %>
+      <%= text_field_tag "quantity", params[:quantity] %>
+      <%= submit_tag "カートに追加" %>
+    <% end %>
   <% end %>
 </div>
