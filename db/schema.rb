@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_01_11_114345) do
   create_table "details", force: :cascade do |t|
     t.integer "item_id", null: false
     t.integer "order_id", null: false
-    t.integer "quantitiy", default: 1, null: false
+    t.integer "quantitiy", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_details_on_item_id"
@@ -48,9 +48,9 @@ ActiveRecord::Schema.define(version: 2020_01_11_114345) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.datetime "time", null: false
-    t.integer "pay", null: false
+    t.integer "user_id"
+    t.datetime "time"
+    t.integer "pay", default: 0, null: false
     t.boolean "delivery", default: false, null: false
     t.boolean "cancel", default: false, null: false
     t.datetime "created_at", null: false
