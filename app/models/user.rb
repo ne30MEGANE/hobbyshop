@@ -10,8 +10,8 @@ class User < ApplicationRecord
       with: /\A[0-9\(\)\-]*\z/,
       allow_blank: true,
       message: :invalid_telephone_number
-    }
-    validates :email, presence: true, email: {allow_blank: true}
+    }, uniqueness: true
+    validates :email, presence: true, email: {allow_blank: true}, uniqueness: true
     validates :postcode, presence: true, format: {
       with: /\A[0-9]{3}-[0-9]{4}\z/,
       allow_blank: true,
