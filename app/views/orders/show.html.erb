@@ -1,1 +1,32 @@
 <h2>ショッピングカートの商品</h2>
+<div class="paragraph">
+  <p>
+    現在ショッピングカートに追加されている商品を確認できます<br>
+    <br>
+    個数変更を行う際は個数を入力し、個数変更ボタンをクリックしてください<br>
+    削除ボタンを押すと商品をカートから削除することができます
+  </p>
+</div>
+<% if @details.present? %>
+    <table>
+      <tr>
+        <th>商品名</th><th>個数</th><th colspan="2">操作</th>
+      </tr>
+      <% @details.each do |d| %>
+        <tr>
+          <td><%= Item.find(d.item_id).item_name %></td>
+            <%= form_for d, url: '/update_item', method: :post do |f| %>
+              <%= f.hidden_field :item_id %>
+              <td><%= f.text_field :quantitiy %> 個</td>
+              <td><%= f.submit "個数変更" %></td>
+            <% end %>
+            <%= form_for d, url: '/delete_item', method: :delete do |g| %>
+              <%= g.hidden_field :item_id %>
+              <td><%= g.submit "削除" %></td>
+            <% end %>
+        </tr>
+      <% end %>
+    </table>
+<% else %>
+  <p>カートに商品がありません</p>
+<% end %>

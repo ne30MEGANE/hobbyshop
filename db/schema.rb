@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2020_01_11_114345) do
 
   create_table "users", force: :cascade do |t|
     t.string "user_name", null: false
-    t.string "nickname"
+    t.string "nickname", null: false
     t.integer "sex", default: 1, null: false
     t.string "phone"
     t.string "email"

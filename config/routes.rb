@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resource :account, only: [:edit, :update]
   resource :password, only: [:show, :edit, :update]
 
-  resources :orders, only: [:index]
+  resources :orders, only: [:show]
   post '/add_item' => 'orders#add_item'
   post '/update_item' => 'orders#update_item'
   delete '/delete_item' => 'orders#delete_item'
