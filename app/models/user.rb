@@ -4,8 +4,8 @@ class User < ApplicationRecord
     has_many :reviews
     has_many :orders
 
-    validates :user_name, presence: true, length: {minimum: 2, maximum: 20}
-    validates :nickname, length: { maximum: 20}
+    validates :user_name, presence: true, length: {minimum: 2, maximum: 15}
+    validates :nickname, presence: true, length: {minimum: 2, maximum: 15}
     validates :phone, presence: true, format: {
       with: /\A[0-9\(\)\-]*\z/,
       allow_blank: true,
