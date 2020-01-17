@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2020_01_11_114345) do
     t.string "nickname", null: false
     t.integer "sex", default: 1, null: false
     t.string "phone"
-    t.string "email"
+    t.string "email", null: false
     t.date "birthday", null: false
     t.string "postcode", null: false
     t.string "address", null: false
