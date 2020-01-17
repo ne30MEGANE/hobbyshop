@@ -1,7 +1,4 @@
 class Admin::Base < ApplicationController
-    before_action :sign_out!
-    before_action :admin_login_required, except: :new #ログインページは普通にアクセス
-
     private
     def admin_login_required
         raise Forbidden unless current_admin
