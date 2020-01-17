@@ -9,7 +9,7 @@ class Admin::SessionsController < Admin::Base
             session[:admin_id] = admin.admin_name
             redirect_to :root
         else
-            flash.alert = "メールアドレスかパスワードが間違っています"
+            flash.alert = "管理者IDかパスワードが間違っています"
             render 'new'
         end
     end
