@@ -1,23 +1,31 @@
 <% @page_title = "#{@item.item_name}"%>
 
 <h2><%= @item.item_name %></h2>
+
+<%= link_to "商品情報を変更する", edit_admin_item_path(@item) %>
+
 <div class="paragraph">
   <%= @item.item_details %>
   <table>
     <tr>
-      <th>商品名</th><td><%= @item.item_name %></td>
+      <th>商品名</th>
+      <td><%= @item.item_name %></td>
     </tr>
     <tr>
-      <th>カテゴリ</th><td><%= @item.category.category_name %></td>
+      <th>カテゴリ</th>
+      <td><%= @item.category.category_name %></td>
     </tr>
     <tr>
-      <th>価格</th><td><%= @item.price %></td>
+      <th>価格</th>
+      <td><%= @item.price %></td>
     </tr>
     <tr>
-      <th>発売日</th><td><%= @item.releace&.strftime("%Y年%m月%d日") %></td>
+      <th>発売日</th>
+      <td><%= @item.releace&.strftime("%Y年%m月%d日") %></td>
+    </tr>
+    <tr>
+      <th>在庫数</th>
+      <td><%= @item.stock %></td>
     </tr>
   </table>
-  <% if @item.stock < 5 %>
-    <p>在庫が残りわずかの商品です！</p>
-  <% end %>
 </div>

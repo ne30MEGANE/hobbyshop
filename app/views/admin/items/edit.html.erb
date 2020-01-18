@@ -1,0 +1,8 @@
+<% @page_title = "商品情報の編集"%>
+
+<h2><%= @page_title %></h2>
+
+<%= form_for @item do |form| %>
+    <%= render "form", form: form %>
+    <%= form.submit "更新" %>
+<% end %>

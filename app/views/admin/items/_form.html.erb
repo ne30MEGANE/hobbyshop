@@ -1,0 +1,37 @@
+<table>
+    <tr>
+        <th><%= form.label :item_name %></th>
+        <td><%= form.text_field :item_name %>
+    </tr>
+    <tr>
+        <th><%= form.label :item_details %></th>
+        <td><%= form.text_area :item_details, rows: 3 %></td>
+    </tr>
+    <tr>
+        <th><%= form.label :category %></th>
+        <td>
+            <% options = [
+                ["攻略本", 1],
+                ["攻略本以外の書籍", 2],
+                ["CD/DVD", 3],
+                ["ゲームソフト", 4],
+                ["ゲーム機本体", 5],
+                ["キャラクターグッズ", 6],
+                ["その他", 7]
+            ]%>
+            <%= form.select :category, options %>
+        </td>
+    </tr>
+    <tr>
+        <th><%= form.label :price %></th>
+        <td><%= form.number_field :price %>
+    </tr>
+    <tr>
+        <th><%= form.label :releace %></th>
+        <td><%= form.date_select :releace, start_year: 1980, use_month_numbers: true %></td>
+    </tr>
+    <tr>
+        <th><%= form.label :stock %></th>
+        <td><%= form.number_field :stock, min: 0 %></td>
+    </tr>
+</table>
