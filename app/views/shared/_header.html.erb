@@ -1,7 +1,7 @@
 <% if controller.kind_of?(Admin::Base) %>
   <h1 class="title"><%= link_to "HOBBY SHOP NS -for administrator-", :admin_root %></h1>
 <% else %> 
-  <h1 class="title"><%= link_to "HOBBY SHOP NS", :admin_root %></h1>
+  <h1 class="title"><%= link_to "HOBBY SHOP NS", :root %></h1>
 <% end %>
 
 <% if signed_in? #会員がログインしてるとき %> 
