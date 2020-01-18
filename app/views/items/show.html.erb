@@ -1,5 +1,12 @@
 <% @page_title = @item.item_name %>
 
+<%# <%= render "shared/errors", obj: @detail %> %>
+<% if session[:errors] %>
+  <% JSON.parse(session[:errors]).each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+
 <h2><%= @item.item_name %></h2>
 <div class="paragraph">
   <%= @item.item_details %>
@@ -25,7 +32,7 @@
   <% if @item.stock != 0 %>
     <%= form_tag '/add_item' do %>
       <%= hidden_field_tag(:item_id, @item.id) %>
-      <%= text_field_tag "quantitiy", params[:quantitiy] %>
+      <%= number_field_tag "quantitiy", 1, min: 1 %>
       <%= submit_tag "カートに追加" %>
     <% end %>
   <% end %>
