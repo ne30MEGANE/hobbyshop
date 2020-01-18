@@ -7,7 +7,7 @@
     <div class="items">
         <% @items.each do |item| %>
             <div class="item_box">
-                <h4><%= link_to item.item_name , item%></h4>
+                <h4><%= link_to item.item_name , admin_item_path(item) %></h4>
                 <h6><%= item.price %> 円</h6>
             </div>
         <% end %>
