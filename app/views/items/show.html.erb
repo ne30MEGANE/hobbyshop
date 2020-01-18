@@ -1,6 +1,5 @@
 <% @page_title = @item.item_name %>
 
-<%# <%= render "shared/errors", obj: @detail %> %>
 <% if session[:errors] %>
   <% JSON.parse(session[:errors]).each do |error| %>
     <p><%= error %></p>
