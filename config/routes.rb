@@ -17,10 +17,10 @@ Rails.application.routes.draw do
   resource :account, only: [:edit, :update, :destroy]
   resource :password, only: [:show, :edit, :update]
 
-  resources :orders, only: [:show]
-  post '/add_item' => 'orders#add_item'
-  post '/update_item' => 'orders#update_item'
-  delete '/delete_item' => 'orders#delete_item'
+  resources :carts, only: [:show]
+  post '/add_item' => 'carts#add_item'
+  post '/update_item' => 'carts#update_item'
+  delete '/delete_item' => 'carts#delete_item'
 
   namespace :admin do
     root "items#index"

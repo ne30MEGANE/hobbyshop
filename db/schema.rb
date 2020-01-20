@@ -10,13 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_11_114345) do
+ActiveRecord::Schema.define(version: 2020_01_20_181258) do
 
   create_table "admins", force: :cascade do |t|
     t.string "admin_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -27,12 +32,12 @@ ActiveRecord::Schema.define(version: 2020_01_11_114345) do
 
   create_table "details", force: :cascade do |t|
     t.integer "item_id", null: false
-    t.integer "order_id", null: false
+    t.integer "cart_id", null: false
     t.integer "quantitiy", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_details_on_cart_id"
     t.index ["item_id"], name: "index_details_on_item_id"
-    t.index ["order_id"], name: "index_details_on_order_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -48,8 +53,8 @@ ActiveRecord::Schema.define(version: 2020_01_11_114345) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id"
-    t.datetime "time"
+    t.integer "user_id", null: false
+    t.datetime "time", null: false
     t.integer "pay", default: 0, null: false
     t.boolean "delivery", default: false, null: false
     t.boolean "cancel", default: false, null: false

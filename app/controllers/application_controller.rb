@@ -5,12 +5,12 @@ class ApplicationController < ActionController::Base
     helper_method :signed_in?
 
     private def current_cart #@orderを返す
-        if session[:order_id]
-            @order = Order.find(session[:order_id])
+        if session[:cart_id]
+            @cart = Cart.find(session[:cart_id])
         else
-            @order = Order.create() #新しく作って
-            session[:order_id] = @order.id #セッションにidを保存して
-            @order #orderおｂｊを返す
+            @cart = Cart.create #新しく作って
+            session[:cart_id] = @cart.id #セッションにidを保存して
+            @cart #cartおｂｊを返す
         end
     end
     helper_method :current_cart
