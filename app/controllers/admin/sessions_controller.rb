@@ -19,6 +19,7 @@ class Admin::SessionsController < Admin::Base
 
     def destroy
         session.delete(:admin_id)
+        session.delete(:order_id)
         redirect_to :root
     end
 end
