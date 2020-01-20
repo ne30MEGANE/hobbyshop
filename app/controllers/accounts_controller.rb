@@ -14,4 +14,10 @@ class AccountsController < ApplicationController
       render "edit"
     end
   end
+
+  def destroy
+    @user = signed_in?
+    @user.destroy
+    redirect_to :root, notice: "退会しました"
+  end
 end
