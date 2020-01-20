@@ -9,6 +9,7 @@ class Admin::ItemsController < Admin::Base
 
   def edit #商品情報編集画面
     @item = Item.find(params[:id])
+    @categories = Category.order("id")
   end
 
   def update
@@ -23,6 +24,7 @@ class Admin::ItemsController < Admin::Base
 
   def new
     @item = Item.new(category_id: 1, releace: Time.zone.now )
+    @categories = Category.order("id")
   end
 
   def create

@@ -10,15 +10,10 @@
     <tr>
         <th><%= form.label :category_id %></th>
         <td>
-            <% options = [
-                ["攻略本", 1],
-                ["攻略本以外の書籍", 2],
-                ["CD/DVD", 3],
-                ["ゲームソフト", 4],
-                ["ゲーム機本体", 5],
-                ["キャラクターグッズ", 6],
-                ["その他", 7]
-            ]%>
+            <% options = [] %>
+            <% @categories.each_with_index do |c, i| %>
+                <% options.push([c.category_name, i+1]) %>
+            <% end %>
             <%= form.select :category_id, options %>
         </td>
     </tr>
