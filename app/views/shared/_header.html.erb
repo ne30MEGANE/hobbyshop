@@ -17,6 +17,15 @@
       <%= menu_link_to "サインアウト", '/logout', method: :delete,
           data: { confirm: "サインアウトしますか？" } %>
     </ul>
+    <div class="nav">
+    <ul>
+      <li>あとでここをテキストボックスにする</li>
+      <%= menu_link_to "キーワードで検索", "#" %>
+      <%= menu_link_to "カテゴリで検索", "#" %>
+      <%= menu_link_to "商品を新しく登録する", new_admin_item_path %>
+      <%= menu_link_to "注文一覧", "#" %>
+    </ul>
+  </div>
   <% end %>
 <% else %>
   <% if request.path_info != '/login' %>

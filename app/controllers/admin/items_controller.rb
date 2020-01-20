@@ -21,4 +21,17 @@ class Admin::ItemsController < Admin::Base
     end
   end
 
+  def new
+    @item = Item.new(category_id: 1, releace: Time.zone.now )
+  end
+
+  def create
+    @item = Item.new(params[:item])
+    if @item.save
+      redirect_to admin_item_path(@item), notice: "新しい商品を登録しました"
+    else
+      render "new"
+    end
+  end
+
 end

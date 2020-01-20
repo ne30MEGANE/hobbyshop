@@ -1,0 +1,8 @@
+<% @page_title = "新規商品登録"%>
+
+<h2><%= @page_title %></h2>
+
+<%= form_for @item, url: admin_items_path do |form| %>
+    <%= render "form", form: form %>
+    <%= form.submit "登録" %>
+<% end %>
