@@ -22,10 +22,6 @@ Rails.application.routes.draw do
   post '/update_item' => 'orders#update_item'
   delete '/delete_item' => 'orders#delete_item'
 
-  # resource :cart, only: [:index, :update] do #orderコントローラーで実装するかも
-  #   delete "delete", on: :collection
-  # end
-
   namespace :admin do
     root "items#index"
     get "login" => "sessions#new"
