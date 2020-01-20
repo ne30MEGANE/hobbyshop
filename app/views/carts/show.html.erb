@@ -16,12 +16,14 @@
         <tr>
           <td><%= Item.find(d.item_id).item_name %></td>
             <%= form_for d, url: '/update_item', method: :post do |f| %>
-              <%= f.hidden_field :item_id %>
+              <%= hidden_field_tag :id, d.id %>
+              <%= hidden_field_tag :item_id, d.item_id %>
               <td><%= f.number_field :quantitiy, min: 1 %> 個</td>
               <td><%= f.submit "個数変更" %></td>
             <% end %>
             <%= form_for d, url: '/delete_item', method: :delete do |g| %>
-              <%= g.hidden_field :item_id %>
+              <%= hidden_field_tag :id, d.id %>
+              <%= hidden_field_tag :item_id, d.item_id %>
               <td><%= g.submit "削除" %></td>
             <% end %>
         </tr>

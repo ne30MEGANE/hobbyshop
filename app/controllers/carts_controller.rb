@@ -20,13 +20,13 @@ class CartsController < ApplicationController
     end
     
     def update_item
-        @detail.update(quantitiy: params[:quantitiy].to_i)
-        redirect_to current_cart
+        @detail.update(quantitiy: params[:detail][:quantitiy].to_i)
+        redirect_to current_cart, notice: "カート内の商品の個数を変更しました"
     end
     
     def delete_item
         @detail.destroy
-        redirect_to current_cart
+        redirect_to current_cart, notice: "商品をカートから削除しました"
     end
     
     private
