@@ -21,7 +21,7 @@ ja:
       item:
         item_name: 商品名
         item_details: 商品説明
-        category: 商品カテゴリ
+        category_id: 商品カテゴリ
         stock: 在庫数
         price: 価格
         releace: 発売日

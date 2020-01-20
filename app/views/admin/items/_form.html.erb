@@ -8,7 +8,7 @@
         <td><%= form.text_area :item_details, rows: 3 %></td>
     </tr>
     <tr>
-        <th><%= form.label :category %></th>
+        <th><%= form.label :category_id %></th>
         <td>
             <% options = [
                 ["攻略本", 1],
@@ -19,7 +19,7 @@
                 ["キャラクターグッズ", 6],
                 ["その他", 7]
             ]%>
-            <%= form.select :category, options %>
+            <%= form.select :category_id, options %>
         </td>
     </tr>
     <tr>
