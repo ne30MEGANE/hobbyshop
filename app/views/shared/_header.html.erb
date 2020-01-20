@@ -10,7 +10,17 @@
     <%= menu_link_to "サインアウト", '/logout', method: :delete,
         data: { confirm: "サインアウトしますか？" } %>
   </ul>
-<% elsif controller.kind_of?(Admin::Base) #%>
+    <div class="nav">
+    <ul>
+      <%= form_tag :search_items, method: :get, class: "search" do %>
+        <li><%= text_field_tag "q", params[:q] %></li>
+        <%= submit_tag "キーワードで検索" %>
+      <% end %>
+      <%= menu_link_to "カテゴリで検索", "#" %>
+      <%= menu_link_to "ショッピングカート", current_cart %>
+    </ul>
+  </div>
+<% elsif controller.kind_of?(Admin::Base) #管理者ログインのとき %>
   <% if current_admin.present? %>
     <ul class="account-menu">
       <%= current_admin.admin_name %>
@@ -29,7 +39,7 @@
     </ul>
   </div>
   <% end %>
-<% else %>
+<% else #ログインしていないとき %>
   <% if request.path_info != '/login' %>
     <ul class="account-menu">
         <%= "ゲスト様" %>
