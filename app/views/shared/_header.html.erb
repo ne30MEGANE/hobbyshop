@@ -19,8 +19,10 @@
     </ul>
     <div class="nav">
     <ul>
-      <li>あとでここをテキストボックスにする</li>
-      <%= menu_link_to "キーワードで検索", "#" %>
+      <%= form_tag :search_admin_items, method: :get, class: "search" do %>
+        <li><%= text_field_tag "q", params[:q] %></li>
+        <%= submit_tag "キーワードで検索" %>
+      <% end %>
       <%= menu_link_to "カテゴリで検索", "#" %>
       <%= menu_link_to "商品を新しく登録する", new_admin_item_path %>
       <%= menu_link_to "注文一覧", "#" %>
@@ -36,8 +38,10 @@
   <% end %>
   <div class="nav">
     <ul>
-      <li>あとでここをテキストボックスにする</li>
-      <%= menu_link_to "キーワードで検索", "#" %>
+      <%= form_tag :search_items, method: :get, class: "search" do %>
+        <li><%= text_field_tag "q", params[:q] %></li>
+        <%= submit_tag "キーワードで検索" %>
+      <% end %>
       <%= menu_link_to "カテゴリで検索", "#" %>
       <%= menu_link_to "ショッピングカート", current_cart %>
     </ul>

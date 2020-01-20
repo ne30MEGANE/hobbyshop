@@ -1,6 +1,16 @@
 class Item < ApplicationRecord
     belongs_to :category
 
+    class<<self
+      def search(query)
+        rel = order("id")
+        if query.present?
+          rel = rel.where("item_name LIKE ? OR item_details LIKE ?", "%#{query}%", "%#{query}%")
+        end
+        rel
+      end
+    end
+
     validates :item_name, presence: true
     validates :stock, presence: true, 
       numericality: {

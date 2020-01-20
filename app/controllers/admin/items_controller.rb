@@ -34,4 +34,9 @@ class Admin::ItemsController < Admin::Base
     end
   end
 
+  def search
+    @items = Item.search(params[:q])
+    render "index"
+  end
+
 end
