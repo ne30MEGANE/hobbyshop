@@ -2,6 +2,8 @@
 
 <h2><%= @page_title %></h2>
 
+<%= render "shared/errors", obj: @item %>
+
 <%= form_for @item, url: admin_item_path(@item) do |form| %>
     <%= render "form", form: form %>
     <%= form.submit "更新" %>
