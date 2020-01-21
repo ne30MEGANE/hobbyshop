@@ -3,7 +3,7 @@ class CartsController < ApplicationController
     before_action :remove_errors, only: :add_item
 
     def show
-        @details = current_cart.details.order("item_id")
+        @details = current_cart.details.order("item_id") 
     end
     
     def add_item
