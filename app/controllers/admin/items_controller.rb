@@ -1,4 +1,7 @@
 class Admin::ItemsController < Admin::Base
+  before_action :sign_out!
+  before_action :admin_login_required
+
   def index #トップページ
     @items = Item.order("releace")
   end
@@ -14,6 +17,7 @@ class Admin::ItemsController < Admin::Base
 
   def update
     @item = Item.find(params[:id])
+    @categories = Category.order("id")
     @item.assign_attributes(params[:item])
     if @item.save
       redirect_to admin_item_path(@item), notice: "商品情報を更新しました"
@@ -23,12 +27,13 @@ class Admin::ItemsController < Admin::Base
   end
 
   def new
-    @item = Item.new(category_id: 1, releace: Time.zone.now )
+    @item = Item.new(releace: Time.zone.now )
     @categories = Category.order("id")
   end
 
   def create
     @item = Item.new(params[:item])
+    @categories = Category.order("id")
     if @item.save
       redirect_to admin_item_path(@item), notice: "新しい商品を登録しました"
     else
