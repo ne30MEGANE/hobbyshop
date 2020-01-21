@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-    belongs_to :category
+    belongs_to :category, optional: true
 
     class<<self
       def search(query)
