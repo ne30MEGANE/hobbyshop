@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_01_20_181258) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer "category_id", null: false
+    t.integer "category_id"
     t.string "item_name", null: false
     t.text "item_details", null: false
     t.integer "stock", null: false

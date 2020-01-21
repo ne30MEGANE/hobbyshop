@@ -15,7 +15,7 @@ ja:
         birthday: 生年月日
         postcode: 郵便番号
         address: 住所
-        password: パスワード
+        password: 新しいパスワード
         password_confirmation: 新しいパスワードの確認
         current_password: 現在のパスワード
       item:
