@@ -41,4 +41,9 @@ class Admin::ItemsController < Admin::Base
     render "index"
   end
 
+  def select
+    @items = Item.where(category_id: params[:c])
+    render "index"
+  end
+
 end

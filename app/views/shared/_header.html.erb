@@ -4,6 +4,12 @@
   <h1 class="title"><%= link_to "HOBBY SHOP NS", :root %></h1>
 <% end %>
 
+<% options = [] %>
+<% @categories = Category.order("id") %>
+<% @categories.each do |c| %>
+  <% options.push([c.category_name, c.id]) %>
+<% end %>
+
 <% if signed_in? #会員がログインしてるとき %> 
   <ul class="account-menu">
     <%= menu_link_to image_tag("cart.svg", size: "32x32", align: "center"), current_cart %>
@@ -16,7 +22,9 @@
       <%= form_tag :search_items, method: :get, class: "search" do %>
         <li><%= text_field_tag "q", params[:q], placeholder: "キーワードを入力" %><%= submit_tag "キーワードで検索" %></li>
       <% end %>
-      <%= menu_link_to "カテゴリで検索", "#" %>
+      <%= form_tag :select_items, method: :get, class: "select" do %>
+        <li><%= select_tag "c", options_for_select(options, ''), include_blank: true %><%= submit_tag "カテゴリで絞り込む" %></li>
+      <% end %>
     </ul>
   </div>
 <% elsif controller.kind_of?(Admin::Base) #管理者ログインのとき %>
@@ -31,7 +39,9 @@
         <%= form_tag :search_admin_items, method: :get, class: "search" do %>
           <li><%= text_field_tag "q", params[:q], placeholder: "キーワードを入力" %><%= submit_tag "キーワードで検索" %></li>
         <% end %>
-        <%= menu_link_to "カテゴリで検索", "#" %>
+        <%= form_tag :select_admin_items, method: :get, class: "select" do %>
+          <li><%= select_tag "c", options_for_select(options, ''), include_blank: true %><%= submit_tag "カテゴリで絞り込む" %></li>
+        <% end %>
         <%= menu_link_to "カテゴリ一覧", admin_categories_path %>
         <%= menu_link_to "商品を追加する", new_admin_item_path %>
         <%= menu_link_to "注文一覧", "#" %>
@@ -50,7 +60,9 @@
       <%= form_tag :search_items, method: :get, class: "search" do %>
         <li><%= text_field_tag "q", params[:q], placeholder: "キーワードを入力" %><%= submit_tag "キーワードで検索" %></li>
       <% end %>
-      <%= menu_link_to "カテゴリで検索", "#" %>
+      <%= form_tag :select_items, method: :get, class: "select" do %>
+        <li><%= select_tag "c", options_for_select(options, ''), include_blank: true %><%= submit_tag "カテゴリで絞り込む" %></li>
+      <% end %>
     </ul>
   </div>
   <% end %>

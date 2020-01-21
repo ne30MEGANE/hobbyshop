@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :show] do
     get "search", on: :collection
+    get "select", on: :collection
     resources :reviews, only: [:index]
   end
   resources :users, only: [:new, :create] do
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
     end
     resources :items do
       get "search", on: :collection
+      get "select", on: :collection
     end
     resources :categories
   end

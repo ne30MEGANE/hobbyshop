@@ -11,8 +11,8 @@
         <th><%= form.label :category_id %></th>
         <td>
             <% options = [] %>
-            <% @categories.each_with_index do |c, i| %>
-                <% options.push([c.category_name, i+1]) %>
+            <% @categories.each do |c| %>
+                <% options.push([c.category_name, c.id]) %>
             <% end %>
             <%= form.select :category_id, options %>
         </td>
