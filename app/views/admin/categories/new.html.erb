@@ -1,0 +1,15 @@
+<% @page_title = "新規カテゴリ登録"%>
+
+<h2><%= @page_title %></h2>
+<div class="paragraph">
+    <p>
+        新しいカテゴリを登録することができます
+    </p>
+</div>
+
+<%= render "shared/errors", obj: @category %>
+
+<%= form_for @category, url: admin_categories_path do |f| %>
+    <%= f.text_field :category_name %>
+    <%= f.submit "登録" %>
+<% end %>

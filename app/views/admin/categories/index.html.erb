@@ -4,7 +4,7 @@
 <div class="paragraph">
     <p>
         登録されている商品カテゴリを確認することができます<br><br>
-        新しいカテゴリの追加は<%= link_to "こちら", "#" %>
+        新しいカテゴリの追加は<%= link_to "こちら", new_admin_category_path %>
     </p>
 </div>
 
@@ -19,7 +19,10 @@
             <tr>
                 <td><%= c.category_name %></td>
                 <td><%= Item.where(category_id: c.id).count %></td>
-                <td><%= link_to "削除", admin_category_path(c), method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
+                <td>
+                    <%= link_to "名前を変更", edit_admin_category_path(c) %>
+                    <%= link_to "削除", admin_category_path(c), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+                </td>
             </tr>
         <% end %>
     </table>

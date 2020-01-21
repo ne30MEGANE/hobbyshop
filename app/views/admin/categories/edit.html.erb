@@ -1,0 +1,15 @@
+<% @page_title = "カテゴリ名を変更" %>
+
+<h2><%= @page_title %></h2>
+<div class="paragraph">
+    <p>
+        すでにあるカテゴリの名前を変更することができます
+    </p>
+</div>
+
+<%= render "shared/errors", obj: @category %>
+
+<%= form_for @category, url: admin_category_path(@category) do |f| %>
+    <%= f.text_field :category_name %>
+    <%= f.submit "登録" %>
+<% end %>
