@@ -22,7 +22,7 @@
         </tr>
         <% @details.each do |d| %>
             <tr>
-                <td><%= Item.find(d.item_id).item_name %></td>
+                <td><%= link_to "#{Item.find(d.item_id).item_name}", Item.find(d.item_id) %></td>
                 <td><%= d.quantitiy %> 個</td>
                 <td><%= Item.find(d.item_id).price %> 円</td>
             </tr>

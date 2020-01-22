@@ -16,7 +16,7 @@
       </tr>
       <% @details.each do |d| %>
         <tr>
-          <td><%= Item.find(d.item_id).item_name %></td>
+          <td><%= link_to "#{Item.find(d.item_id).item_name}", Item.find(d.item_id) %></td>
             <%= form_for d, url: '/update_item', method: :post do |f| %>
               <%= hidden_field_tag :id, d.id %>
               <%= hidden_field_tag :item_id, d.item_id %>
