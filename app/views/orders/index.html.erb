@@ -8,6 +8,7 @@
         注文履歴をみることができます<br>
         <br>
         配送状況の確認や、注文のキャンセルも行えます
+        発送済の注文はキャンセルすることはできません
     </p>
 </div>
 
@@ -32,9 +33,13 @@
                 </td>
                 <td>
                     <% if order.cancel? %>
-                        -
+                        キャンセル済
                     <% else %>
-                        <%= link_to "キャンセル", "#" %>
+                        <% unless order.delivery? #発送済みじゃないとき %>
+                            <%= link_to "キャンセル", cancel_order_path(order), method: :patch, data: {confirm: "本当にキャンセルしますか？"} %>
+                        <% else %>
+                            未発送
+                        <% end %>
                     <% end %>
                 </td>
             </tr>

@@ -26,6 +26,20 @@ class OrdersController < ApplicationController
     @details = Detail.where(cart_id: params[:id])
   end
 
+  def cancel
+    @order = Order.find(params[:id])
+    if @order.cancel? #万が一キャンセル済の注文に対して呼ばれた場合
+      redirect_to 'index', notice: "すでにキャンセルされた注文です"
+    else
+      if @order.delivery? #これもないとは思うけど万が一発送の注文だった場合
+        redirect_to 'index', notice: "この注文は発送済みのためキャンセルはできません"
+      else #注文がまだキャンセルされてなくて、かつ発送もまだの注文
+        @order.update(cancel: true)
+        redirect_to 'index', notice: "注文をキャンセルしました"
+      end
+    end
+  end
+
   private
   def remove_cart_item
     session.delete(:cart_id)
