@@ -34,8 +34,9 @@ class OrdersController < ApplicationController
       if @order.delivery? #これもないとは思うけど万が一発送の注文だった場合
         redirect_to 'index', notice: "この注文は発送済みのためキャンセルはできません"
       else #注文がまだキャンセルされてなくて、かつ発送もまだの注文
-        @order.update(cancel: true)
-        redirect_to 'index', notice: "注文をキャンセルしました"
+        @order.cancel = 1
+        @order.save
+        redirect_back fallback_location: 'index', notice: "注文をキャンセルしました"
       end
     end
   end
