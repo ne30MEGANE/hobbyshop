@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @details = Detail.where(cart_id: params[:id])
+    @details = Detail.where(cart_id: @order.cart_id)
   end
 
   def cancel
