@@ -33,7 +33,7 @@ class CartsController < ApplicationController
     def setup_cart_item!
         @detail = current_cart.details.find_by(item_id: params[:item_id])
     end
-    def remove_errors
+    def remove_errors #ブラウザでnumberフィールドのmin消したりとか意地悪いことされたとき用
         session.delete(:errors)
     end
 end
