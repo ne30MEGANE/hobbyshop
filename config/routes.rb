@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   post '/update_item' => 'carts#update_item'
   delete '/delete_item' => 'carts#delete_item'
 
+  resources :orders
+
   namespace :admin do
     root "items#index"
     get "login" => "sessions#new"

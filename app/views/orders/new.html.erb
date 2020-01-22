@@ -1,0 +1,64 @@
+<% @page_title = "注文確認" %>
+<% @header = true %>
+<% total_pay = 0 %>
+<h2><%= @page_title %></h2>
+
+<div class="paragraph">
+    <p>
+        ＊ご注文はまだ確定しておりません！<br>
+        <br>
+        注文内容を確認してください<br>
+        画面下部の確定ボタンを押すと注文を確定します
+    </p>
+</div>
+
+<% if @details.present? %>
+    <%= form_for @order do |f| %>
+        <table>
+            <tr>
+                <th>商品名</th>
+                <th>個数</th>
+                <th>単価</th>
+            </tr>
+            <% @details.each do |d| %>
+                <tr>
+                    <td><%= Item.find(d.item_id).item_name %></td>
+                    <td><%= d.quantitiy %> 個</td>
+                    <td><%= Item.find(d.item_id).price %> 円</td>
+                    <% item_total = (Item.find(d.item_id).price) * ((d.quantitiy).to_i) %>
+                    <% total_pay += item_total %>
+                </tr>
+            <% end %>
+        </table>
+        <hr>
+        <div class="pay">
+            <h3>合計金額： <%= total_pay %>円<h3>
+            <%= f.hidden_field :pay, value: total_pay %>
+        </div>
+        <br>
+        <h2>購入者・発送先情報</h2>
+        <table>
+            <tr>
+                <th>お名前</th>
+                <td><%= @user.user_name %> 様</td>
+            </tr>
+            <tr>
+                <th>郵便番号</th>
+                <td><%= @user.postcode %></td>
+            </tr>
+            <tr>
+                <th>ご住所</th>
+                <td><%= @user.address %></td>
+            </tr>
+            <tr>
+                <th>電話番号</th>
+                <td><%= @user.phone %></td>
+            </tr>
+        </table>
+        <%= link_to "発送先住所を修正する", :edit_account %>
+        <%= f.hidden_field :user_id, value: @user.id %>
+        <%= f.hidden_field :cart_id, value: current_cart.id %>
+        <%= f.hidden_field :time, value: Time.now %>
+        <%= f.submit "確定", data: { confirm: "注文を確定します。よろしいですか？" } %>
+    <% end %>
+<% end %>

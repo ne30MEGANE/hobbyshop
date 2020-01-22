@@ -2,6 +2,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
   def change
     create_table :orders do |t|
       t.references :user, null:false #購入者
+      t.references :cart, null:false #購入商品
       t.datetime :time, null:false
       t.integer :pay, null: false, default: 0
       t.boolean :delivery, null: false, default: false

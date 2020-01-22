@@ -54,12 +54,14 @@ ActiveRecord::Schema.define(version: 2020_01_20_181258) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id", null: false
+    t.integer "cart_id", null: false
     t.datetime "time", null: false
     t.integer "pay", default: 0, null: false
     t.boolean "delivery", default: false, null: false
     t.boolean "cancel", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
