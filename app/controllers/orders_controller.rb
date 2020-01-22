@@ -29,10 +29,10 @@ class OrdersController < ApplicationController
   def cancel
     @order = Order.find(params[:id])
     if @order.cancel? #万が一キャンセル済の注文に対して呼ばれた場合
-      redirect_to 'index', notice: "すでにキャンセルされた注文です"
+      redirect_back fallback_location: 'index', notice: "すでにキャンセルされた注文です"
     else
       if @order.delivery? #これもないとは思うけど万が一発送の注文だった場合
-        redirect_to 'index', notice: "この注文は発送済みのためキャンセルはできません"
+        redirect_back fallback_location: 'index', notice: "この注文は発送済みのためキャンセルはできません"
       else #注文がまだキャンセルされてなくて、かつ発送もまだの注文
         @order.cancel = 1
         @order.save

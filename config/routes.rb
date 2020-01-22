@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   post '/update_item' => 'carts#update_item'
   delete '/delete_item' => 'carts#delete_item'
 
-  resources :orders do
+  resources :orders, except: [:edit, :update, :destroy] do
     patch "cancel", on: :member
   end
 
@@ -34,6 +34,9 @@ Rails.application.routes.draw do
     delete "logout" => "sessions#destroy"
     resources :admins do
       resource :admin_session, only: [:new, :create, :destroy]
+    end
+    resources :orders, only: [:index, :show] do
+      patch "delivery", on: :member
     end
     resources :items do
       get "search", on: :collection

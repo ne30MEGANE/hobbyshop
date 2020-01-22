@@ -1,0 +1,59 @@
+<% @page_title = "注文一覧" %>
+
+<h2><%= @page_title %></h2>
+
+<div class="paragraph">
+    <p>
+        会員からの注文一覧です<br>
+        <br>
+        発送したら発送完了ボタンを押すことで、キャンセル不可にできます<br>
+        間違えて発送完了ボタンを押してしまった場合、取り消しボタンで再び未発送状態に戻すことができます<br>
+        <br>
+        注文IDのリンクから注文商品リストや配送先の詳しい情報を確認できます
+    </p>
+</div>
+
+<% if @orders.present? %>
+    <table>
+        <tr>
+            <th>注文ID</th>
+            <th>注文日時</th>
+            <th>購入者</th>
+            <th>状況</th>
+            <th>操作</th>
+        </tr>
+        <% @orders.each do |order| %>
+            <tr>
+                <td><%= link_to "#{order.id}", admin_order_path(order) %></td>
+                <td><%= "#{order.time.strftime("%Y年%m月%d日 %H時%M分")}" %></td>
+                <td><%= User.find(order.user_id).user_name %> 様</td>
+                <td>
+                    <% if order.cancel? %>
+                        キャンセル
+                    <% else %>
+                        <% if order.delivery? %>
+                            発送完了
+                        <% else %>
+                            発送準備中
+                        <% end %>
+                    <% end %>
+                </td>
+                <td>
+                    <% if order.delivery? %>
+                        <%= link_to "発送完了を取り消す", delivery_admin_order_path(order), method: :patch, data: {confirm: "発送済みを取り消しますか？"} %>
+                    <% else %>
+                        <% if order.cancel? %>
+                            -
+                        <% else %>
+                            <%= link_to "発送完了", delivery_admin_order_path(order), method: :patch, data: {confirm: "発送済みにしますか？"} %>
+                        <% end %>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+<% else %>
+    <p>
+        過去の注文はありません
+    </p>
+<% end %>
