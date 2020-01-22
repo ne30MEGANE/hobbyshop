@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
   end
 
   def index #注文履歴一覧
-    @orders = Order.where(user_id: signed_in?.id)
+    @orders = Order.where(user_id: signed_in?.id).page(params[:page]).per(20)
   end
 
   def show

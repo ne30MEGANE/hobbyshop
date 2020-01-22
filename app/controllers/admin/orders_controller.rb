@@ -3,7 +3,7 @@ class Admin::OrdersController < Admin::Base
   before_action :admin_login_required
   
   def index #注文履歴一覧
-    @orders = Order.order(id: :desc)
+    @orders = Order.order(id: :desc).page(params[:page]).per(20)
   end
 
   def show
