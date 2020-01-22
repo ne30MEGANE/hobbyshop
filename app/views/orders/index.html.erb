@@ -1,0 +1,47 @@
+<% @page_title = "注文履歴" %>
+<% @header = true %>
+
+<h2><%= @page_title %></h2>
+
+<div class="paragraph">
+    <p>
+        注文履歴をみることができます<br>
+        <br>
+        配送状況の確認や、注文のキャンセルも行えます
+    </p>
+</div>
+
+<% if @orders.present? %>
+    <table>
+        <tr>
+            <th>注文日時</th>
+            <th>合計金額</th>
+            <th>配送状況</th>
+            <th>操作</th>
+        </tr>
+        <% @orders.each do |order| %>
+            <tr>
+                <td><%= link_to "#{order.time.strftime("%Y/%m/%d_%H:%M")}", order %></td>
+                <td><%= order.pay %> 円</td>
+                <td>
+                    <% if order.delivery? %>
+                        発送済み
+                    <% else %>
+                        未発送
+                    <% end %>
+                </td>
+                <td>
+                    <% if order.cancel? %>
+                        -
+                    <% else %>
+                        <%= link_to "キャンセル", "#" %>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+<% else %>
+    <p>
+        過去の注文はありません
+    </p>
+<% end %>

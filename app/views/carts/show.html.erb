@@ -1,4 +1,4 @@
-<% total_pay = 0 %>
+<% $total_pay = 0 %>
 <% @page_title = "ショッピングカート" %>
 <h2>ショッピングカートの商品</h2>
 <div class="paragraph">
@@ -20,10 +20,12 @@
             <%= form_for d, url: '/update_item', method: :post do |f| %>
               <%= hidden_field_tag :id, d.id %>
               <%= hidden_field_tag :item_id, d.item_id %>
+              <% item_total = 0 %>
               <td><%= f.number_field :quantitiy, min: 1 %> 個</td>
               <td><%= tanka = Item.find(d.item_id).price %> 円</td>
-              <% tanka = tanka * ((d.quantitiy).to_i) %>
-              <% total_pay += tanka %>
+              <% kosuu = d.quantitiy.to_i %>
+              <% item_total = tanka * kosuu %>
+              <% $total_pay += item_total %>
               <td><%= f.submit "個数変更" %></td>
             <% end %>
             <%= form_for d, url: '/delete_item', method: :delete do |g| %>
@@ -36,7 +38,7 @@
     </table>
     <hr>
     <div class="pay">
-      <h3>合計金額：<%= total_pay %>円<h3>
+      <h3>合計金額：<%= $total_pay %>円<h3>
       <%= link_to "購入へ進む", new_order_path %>
     </div>
 

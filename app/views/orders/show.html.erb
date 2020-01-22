@@ -1,0 +1,35 @@
+<% @page_title = "注文履歴" %>
+<% @header = true %>
+
+<h2><%= "#{@order.time.strftime("%Y/%m/%d_%H:%M")}のご注文" %></h2>
+
+<div class="paragraph">
+    <p>
+        注文内容を確認できます<br>
+        <br>
+        <%= link_to "注文履歴一覧へ", orders_path %>
+    </p>
+</div>
+
+<h3>購入商品一覧</h3>
+
+<% if @details.present? %>
+    <table>
+        <tr>
+            <th>商品名</th>
+            <th>個数</th>
+            <th>単価</th>
+        </tr>
+        <% @details.each do |d| %>
+            <tr>
+                <td><%= Item.find(d.item_id).item_name %></td>
+                <td><%= d.quantitiy %> 個</td>
+                <td><%= Item.find(d.item_id).price %> 円</td>
+            </tr>
+        <% end %>
+    </table>
+    <hr>
+    <div class="pay">
+        <h3>合計金額： <%= @order.pay %>円<h3>
+    </div>
+<% end %>

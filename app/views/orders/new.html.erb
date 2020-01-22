@@ -1,6 +1,6 @@
 <% @page_title = "注文確認" %>
 <% @header = true %>
-<% total_pay = 0 %>
+<% $total_pay = 0 %>
 <h2><%= @page_title %></h2>
 
 <div class="paragraph">
@@ -22,18 +22,19 @@
             </tr>
             <% @details.each do |d| %>
                 <tr>
+                    <% item_total = 0 %>
                     <td><%= Item.find(d.item_id).item_name %></td>
                     <td><%= d.quantitiy %> 個</td>
-                    <td><%= Item.find(d.item_id).price %> 円</td>
-                    <% item_total = (Item.find(d.item_id).price) * ((d.quantitiy).to_i) %>
-                    <% total_pay += item_total %>
+                    <td><%= tanka = Item.find(d.item_id).price %> 円</td>
+                    <% item_total = tanka * ((d.quantitiy).to_i) %>
+                    <% $total_pay += item_total %>
                 </tr>
             <% end %>
         </table>
         <hr>
         <div class="pay">
-            <h3>合計金額： <%= total_pay %>円<h3>
-            <%= f.hidden_field :pay, value: total_pay %>
+            <h3>合計金額： <%= $total_pay %>円<h3>
+            <%= f.hidden_field :pay, value: $total_pay %>
         </div>
         <br>
         <h2>購入者・発送先情報</h2>

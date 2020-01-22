@@ -1,4 +1,5 @@
 <% @page_title = "会員情報確認" %>
+<% @header = true %>
 
 <h2><%= @page_title %></h2>
 <div class="paragraph">
@@ -14,6 +15,13 @@
   <div><%= form.submit "更新" %></div>
 <% end %>
 <br>
+
+<h3>その他のサービス<h3>
+<ul>
+  <%= menu_link_to "注文履歴", orders_path %>
+  <%= menu_link_to "レビュー一覧", "#" %>
+</ul>
+
 <br>
 <div id="des">
   <%= link_to "退会する", :account, method: :delete, data: { confirm: "本当に退会しますか？" } %>
