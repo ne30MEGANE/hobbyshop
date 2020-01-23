@@ -43,6 +43,13 @@ footer{
 .alert{
     color: tomato;
 }
+.notice{
+    border-radius: 15px;
+    background-color: honeydew;
+    padding: 5px;
+    text-align: center;
+    color: dimgray;
+}
 /* ヘッダー */
 .account-menu{
     text-align: right;
@@ -73,7 +80,20 @@ footer{
     box-shadow: 0 0 4px 1px rgba(100,200,100,.5);
 }
 .textbox input[type='submit']{
-
+    margin: 7px;
+    background-color: olivedrab;
+    border-style: outset;
+    border-color: #505000;
+    border-radius: 10px;
+    padding: 7px;
+    color: whitesmoke;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.textbox input[type='submit']:hover{
+    border-style: solid;
+    border-color: #404000;
+    background-color: #707000;
 }
 .nav{
     text-align: center;
@@ -93,6 +113,7 @@ footer{
     vertical-align: middle;
     border-radius: 5px;
     border: olive 1px solid;
+    padding: 3px;
 }
 .nav form input[type='text']:focus{
     border: yellowgreen 1px solid;
@@ -108,13 +129,14 @@ footer{
 }
 .nav li{
     display: inline;
-    padding: 2px 10px;
+    padding: 3px 10px;
 }
 .nav li:hover{
     border-bottom: forestgreen 4px solid;
 }
 .title a{
     text-decoration: none;
+    font-size: 28pt;
     color: olivedrab;
 }
 /* 商品概要 */
@@ -141,3 +163,43 @@ footer{
 .item_box h6{
     float: right;
 }
+.paragraph table{
+    margin: 10px;
+}
+.paragraph th{
+    padding: 5px;
+    border-radius: 5px;
+    background-color: palegreen;
+    color: #202000;
+}
+.paragraph form input[type='number']{
+    vertical-align: middle;
+    border-radius: 5px;
+    border: olive 1px solid;
+    padding: 3px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 10pt;
+    margin: 10px;
+}
+.paragraph form input[type='number']:focus{
+    border: yellowgreen 1px solid;
+    box-shadow: 0 0 3px 1px rgba(100,200,100,.5);
+}
+.paragraph form input[type='submit']{
+    margin: 7px;
+    background-color: olivedrab;
+    border-style: outset;
+    border-color: #505000;
+    border-radius: 5px;
+    padding: 3px;
+    color: whitesmoke;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.paragraph form input[type='submit']:hover{
+    border-style: solid;
+    border-color: #404000;
+    background-color: #707000;
+}
+/* テーブル */
