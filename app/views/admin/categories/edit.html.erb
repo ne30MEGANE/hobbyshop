@@ -12,6 +12,6 @@
 <div class="textbox">
     <%= form_for @category, url: admin_category_path(@category) do |f| %>
         <%= f.text_field :category_name %>
-        <%= f.submit "登録" %>
+        <div class="submit"><%= f.submit "登録" %></div>
     <% end %>
 </div>

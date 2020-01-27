@@ -2,6 +2,9 @@ ja:
   activerecord:
     models:
       user: 会員
+      item: 商品
+      category: カテゴリ
+      review: レビュー
     attributes:
       user:
         user_name: お名前
@@ -35,6 +38,8 @@ ja:
         cancel: キャンセル
       detail:
         quantitiy: 個数
+      category:
+        category_name: カテゴリ名
     errors:
       messages:
         invalid_telephone_number: は半角数字と()-のみで入力してください
