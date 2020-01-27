@@ -60,6 +60,6 @@
         <%= f.hidden_field :user_id, value: @user.id %>
         <%= f.hidden_field :cart_id, value: current_cart.id %>
         <%= f.hidden_field :time, value: Time.now %>
-        <%= f.submit "確定", data: { confirm: "注文を確定します。よろしいですか？" } %>
+        <div class="submit"><%= f.submit "確定", data: { confirm: "注文を確定します。よろしいですか？" } %></div>
     <% end %>
 <% end %>
