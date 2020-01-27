@@ -4,8 +4,8 @@ class User < ApplicationRecord
     has_many :reviews
     has_many :orders
 
-    validates :user_name, presence: true, length: {minimum: 2, maximum: 15}
-    validates :nickname, presence: true, length: {minimum: 2, maximum: 15}
+    validates :user_name, presence: true, length: {minimum: 2, maximum: 15, allow_blank: true}
+    validates :nickname, presence: true, length: {minimum: 2, maximum: 15, allow_blank: true}
     validates :phone, presence: true, format: {
       with: /\A[0-9\(\)\-]*\z/,
       allow_blank: true,
@@ -17,6 +17,7 @@ class User < ApplicationRecord
       allow_blank: true,
       message: :invalid_postcode
     }
+    validates :address, presence: true
     
 
     attr_accessor :current_password
