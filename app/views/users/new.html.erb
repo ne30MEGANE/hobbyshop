@@ -1,4 +1,5 @@
 <% @page_title = "新規会員登録" %>
+<% @header = true %>
 
 <h2><%= @page_title %></h2>
 <div class="paragraph">
@@ -15,7 +16,9 @@
   </p>
 </div>
 
-<%= form_for @user do |form| %>
-  <%= render "shared/user_form", form: form %>
-  <div><%= form.submit "登録" %></div>
-<% end %>
+<div class="user_form">
+  <%= form_for @user do |form| %>
+    <%= render "shared/user_form", form: form %>
+    <div class="submit"><%= form.submit "登録" %></div>
+  <% end %>
+</div>

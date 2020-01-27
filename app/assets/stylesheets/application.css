@@ -18,6 +18,7 @@
 body{
     display: flex;
     flex-direction: column;
+
 }
 main{
     padding: 0 10%;
@@ -38,6 +39,23 @@ footer{
     background-color: darkgreen;
     color: whitesmoke;
     text-align: center;
+}
+input[type='submit']{
+    margin: 7px;
+    font-size: 12pt;
+    background-color: olivedrab;
+    border-style: outset;
+    border-color: #505000;
+    border-radius: 10px;
+    padding: 4px 9px;
+    color: whitesmoke;
+    transition: 0.2s;
+    cursor: pointer;
+}
+input[type='submit']:hover{
+    border-style: solid;
+    border-color: #404000;
+    background-color: #707000;
 }
 /* アラート */
 .alert{
@@ -67,17 +85,6 @@ footer{
 .textbox{
     position: relative;
     padding: 15px 5%;
-}
-.textbox input[type='text'], input[type='password']{
-    padding: 10px;
-    margin: 7px;
-    border-radius: 5px;
-    border: olive 1px solid;
-    transition: 0.3s;
-}
-.textbox input[type='text']:focus, input[type='password']:focus{
-    border: yellowgreen 1px solid;
-    box-shadow: 0 0 4px 1px rgba(100,200,100,.5);
 }
 .textbox input[type='submit']{
     margin: 7px;
@@ -203,3 +210,69 @@ footer{
     background-color: #707000;
 }
 /* テーブル */
+table {
+    margin:auto;
+    width: 80%;
+}
+table th{
+    background-color: palegreen;
+    color: #202000;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14pt;
+}
+table td{
+    padding: 5px;
+    background-color: beige;
+    border-radius: 5px;
+}
+/* フォーム */
+input[type='text'], input[type='password'], input[type='number']{
+    height: 18pt;
+    align-content: center;
+    vertical-align: middle;
+    border-radius: 5px;
+    border: olive 1px solid;
+    padding: 6px;
+}
+input[type='text']:focus, input[type='password']:focus, input[type='number']:focus{
+    border: yellowgreen 1px solid;
+    box-shadow: 0 0 3px 1px rgba(100,200,100,.5);
+}
+.field_with_errors input[type='text'], .field_with_errors input[type='password'], .field_with_errors input[type='number']{
+    box-shadow: 0 0 3px 1px  rgb(236, 60, 60);
+    border: crimson 1px solid;
+}
+.submit{
+    text-align: right;
+}
+
+/* エラー表示 */
+#errors {
+    width: 60%;
+    padding: 4px;
+    margin: 1%;
+    border: tomato 2px solid;
+    border-radius: 10px;
+    background-color: rgba(255, 210, 202, .5);
+}
+#errors h3 {
+    padding-left: 10px;
+    margin: 0;
+    border-bottom: tomato dotted 8px;
+}
+#errors ul{
+    margin: 5px;
+}
+/* カテゴリ追加編集フォーム */
+.cat_form{
+    width: 70%;
+    margin: auto;
+}
+/* ユーザー情報のフォーム */
+.user_form table{
+    width: 60%;
+}
+.user_form input[type='text']{
+    width: 80%;
+}

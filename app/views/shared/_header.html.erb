@@ -58,15 +58,18 @@
       <li><%= "ゲスト様" %></li>
       <%= menu_link_to "サインイン", '/login'%>
     </ul>
-  <div class="nav">
-    <ul>
-      <%= form_tag :search_items, method: :get, class: "search" do %>
-        <li><%= text_field_tag "q", params[:q], placeholder: "キーワードを入力" %><%= submit_tag "キーワードで検索" %></li>
-      <% end %>
-      <%= form_tag :select_items, method: :get, class: "select" do %>
-        <li><%= select_tag "c", options_for_select(options, ''), include_blank: true %><%= submit_tag "カテゴリで絞り込む" %></li>
-      <% end %>
-    </ul>
-  </div>
+    <% if @header #ヘッダーメニューを表示させたくないページに設定してある変数%>
+    <% else %>
+      <div class="nav">
+        <ul>
+          <%= form_tag :search_items, method: :get, class: "search" do %>
+            <li><%= text_field_tag "q", params[:q], placeholder: "キーワードを入力" %><%= submit_tag "キーワードで検索" %></li>
+          <% end %>
+          <%= form_tag :select_items, method: :get, class: "select" do %>
+            <li><%= select_tag "c", options_for_select(options, ''), include_blank: true %><%= submit_tag "カテゴリで絞り込む" %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   <% end %>
 <% end %>

@@ -10,11 +10,12 @@
   </p>
 </div>
 
-<%= form_for @user, as: 'account', url: :account do |form| %>
-  <%= render "shared/user_form", form: form %>
-  <div><%= form.submit "更新" %></div>
-<% end %>
-<br>
+<div class="user_form">
+  <%= form_for @user, as: 'account', url: :account do |form| %>
+    <%= render "shared/user_form", form: form %>
+    <div class="submit"><%= form.submit "更新" %></div>
+  <% end %>
+</div>
 
 <h3>その他のサービス<h3>
 <ul>
