@@ -7,12 +7,13 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show] do
     get "search", on: :collection
     get "select", on: :collection
-    resources :reviews, only: [:index]
+    resources :reviews
   end
   resources :users, only: [:new, :create] do
     resources :reviews
     
   end
+  resources :reviews
 
   resource :session, only: [:new, :create, :destroy]
   resource :account, only: [:edit, :update, :destroy]

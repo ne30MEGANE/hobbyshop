@@ -1,0 +1,23 @@
+<% @page_title = "商品レビュー"%>
+<% @header = true %>
+
+<h2><%= @page_title %></h2>
+<div class="paragraph">
+    <p>
+        商品にレビューを書くことができます<br>
+        レビューの内容と会員情報で登録されているニックネームが公開されます<br>
+        <br>
+        誹謗中傷を含むレビューなど不適切なものは削除されることがあります<br>
+    </p>
+</div>
+
+<%= render "shared/errors", obj: @review %>
+
+<%= form_for [@item, @review] do |form| %>
+    <%= form.hidden_field :item_id, value: @item.id %>
+    <%= form.hidden_field :user_id %>
+    <%= render "form", form: form %>
+    <div class="submit">
+        <%= form.submit "投稿" %>
+    </div>
+<% end %>

@@ -1,0 +1,15 @@
+<% options = [["★", 1], ["★★", 2], ["★★★", 3], ["★★★★", 4], ["★★★★★", 5]] %>
+<table>
+    <tr>
+        <th>商品名</th>
+        <td><%= Item.find(params[:item_id]).item_name %></td>
+    </tr>
+    <tr>
+        <th>点数</th>
+        <td><%= form.select :score, options %></td>
+    </tr>
+    <tr>
+        <th>コメント</th>
+        <td><%= form.text_area :text, rows: 5 %></td>
+    </tr>
+</table>
