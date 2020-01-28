@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
-  before_action :login_required
+  before_action :login_required, except: :new
 
   def index
-    
+    @reviews = signed_in?.reviews
   end
 
   def new
@@ -23,5 +23,11 @@ class ReviewsController < ApplicationController
     else
       render 'reviews/new'
     end
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to :reviews, notice: "レビューを削除しました"
   end
 end

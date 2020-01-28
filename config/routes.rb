@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show] do
     get "search", on: :collection
     get "select", on: :collection
-    resources :reviews
+    resources :reviews, only: [:new, :create]
   end
   resources :users, only: [:new, :create] do
-    resources :reviews
+    resources :reviews, only: [:index, :destroy]
     
   end
   resources :reviews
