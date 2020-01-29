@@ -9,6 +9,11 @@
         <% @items.each do |item| %>
             <div class="item_box">
                 <h4><%= link_to item.item_name, item %></h4>
+                <% if item.item_image.attached? %>
+                    <%= image_tag item.item_image.variant(resize: "130x130") %>
+                <% else %>
+                    <%= image_tag("default.png", size: "130x130", align: "center") %>
+                <% end %>
                 <h6><%= item.price %> 円</h6>
             </div>
         <% end %>

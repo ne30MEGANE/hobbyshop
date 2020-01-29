@@ -7,8 +7,19 @@
 <% end %>
 
 <h2><%= @item.item_name %></h2>
-<div class="paragraph">
-  <%= @item.item_details %>
+<div class="item_show">
+  <div class="image_and_detail">
+    <div id="item_image">
+      <% if @item.item_image.attached? %>
+          <%= image_tag @item.item_image %>
+      <% else %>
+          <%= image_tag("default.png") %>
+      <% end %>
+    </div>
+    <div id="item_detail">
+      <%= @item.item_details %>
+    </div>
+  </div>
   <table>
     <tr>
       <th>商品名</th><td><%= @item.item_name %></td>

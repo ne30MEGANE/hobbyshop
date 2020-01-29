@@ -124,15 +124,6 @@ footer{
     text-align: right;
     margin: 0;
 }
-.paragraph table{
-    margin: 10px;
-}
-.paragraph th{
-    padding: 5px;
-    border-radius: 5px;
-    background-color: palegreen;
-    color: #202000;
-}
 
 /* エラー表示 */
 #errors {
