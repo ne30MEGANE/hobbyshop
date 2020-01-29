@@ -1,0 +1,29 @@
+/* テーブル */
+table {
+    margin:auto;
+    padding: 20px 0;
+    width: 80%;
+}
+table th{
+    background-color: palegreen;
+    color: #202000;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14pt;
+}
+table td{
+    padding: 5px;
+    background-color: beige;
+    border-radius: 5px;
+}
+/* レビューの平均点表示するところのやつ */
+.r_table {
+    margin: 20px;
+    width: 200px;
+}
+.r_table th{
+    width: 50%;
+}
+.r_table td{
+    width: 50%;
+}
