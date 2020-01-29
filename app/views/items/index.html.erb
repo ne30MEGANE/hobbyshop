@@ -4,6 +4,7 @@
     </p>
 </div>
 <% if @items.present? %>
+    <%= paginate @items %>
     <div class="items">
         <% @items.each do |item| %>
             <div class="item_box">
@@ -12,6 +13,7 @@
             </div>
         <% end %>
     </div>
+    <%= paginate @items %>
 <% else %>
     <p>商品がないか、商品一覧の取得に失敗しました</p>
 <% end %>

@@ -4,14 +4,24 @@
     </p>
 </div>
 <% if @items.present? %>
-    <div class="items">
+    <%= paginate @items %>
+    <table class="items_table">
+        <tr>
+            <th>商品名</th>
+            <th>カテゴリ</th>
+            <th>価格</th>
+            <th>在庫</th>
+        </tr>
         <% @items.each do |item| %>
-            <div class="item_box">
-                <h4><%= link_to item.item_name , admin_item_path(item) %></h4>
-                <h6><%= item.price %> 円</h6>
-            </div>
+            <tr>
+                <td><%= link_to item.item_name , admin_item_path(item) %></td>
+                <td><%= Category.find(item.category_id).category_name %></td>
+                <td><%= item.price %> 円</td>
+                <td><%= item.stock %> 個</td>
+            </tr>
         <% end %>
-    </div>
+    </table>
+    <%= paginate @items %>
 <% else %>
     <p>商品がないか、商品一覧の取得に失敗しました</p>
 <% end %>

@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index #トップページ
-    @items = Item.order("releace")
+    @items = Item.order("releace").page(params[:page]).per(30)
   end
 
   def show #商品詳細
