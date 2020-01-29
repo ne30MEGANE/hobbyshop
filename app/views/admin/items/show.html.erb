@@ -4,8 +4,19 @@
 
 <%= link_to "商品情報を変更する", edit_admin_item_path(@item) %>
 
-<div class="paragraph">
-  <%= @item.item_details %>
+<div class="item_show">
+  <div class="image_and_detail">
+    <div id="item_image">
+      <% if @item.item_image.attached? %>
+          <%= image_tag @item.item_image %>
+      <% else %>
+          <%= image_tag("default.png") %>
+      <% end %>
+    </div>
+    <div id="item_detail">
+      <%= @item.item_details %>
+    </div>
+  </div>
   <table>
     <tr>
       <th>商品名</th>
