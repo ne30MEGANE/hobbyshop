@@ -1,0 +1,35 @@
+<% @page_title = "レビュー一覧"%>
+
+<h2><%= @page_title %></h2>
+<div class="paragraph">
+    <p>
+        会員が書いたレビューの一覧を確認することができまｓ<br><br>
+        問題のあるレビューは削除することもできます
+    </p>
+</div>
+
+<% if @reviews.present? %>
+    <table>
+        <tr>
+            <th>商品名</th>
+            <th>レビュー者/表示名</th>
+            <th>点数</th>
+            <th>コメント</th>
+            <th>操作</th>
+        </tr>
+        <% @reviews.each do |r| %>
+            <tr>
+                <td><%= link_to Item.find(r.item_id).item_name , admin_item_path(Item.find(r.item_id)) %></td>
+                <td><%= User.find(r.user_id).user_name %> / <%= User.find(r.user_id).nickname %></td>
+                <td><%= r.score %></td>
+                <td><%= r.text %></td>
+                <td><%= link_to "削除", admin_review_path(r) , method: :delete, data: {confirm: "レビューを削除しますか"} %></td>
+            </tr>
+        <% end %>
+    </table>
+<% else %>
+    <p>
+        投稿したレビューがありません<br>
+        商品ページからレビューを投稿することができます！
+    </p>
+<% end %>
