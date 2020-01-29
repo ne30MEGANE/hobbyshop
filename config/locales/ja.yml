@@ -23,6 +23,7 @@ ja:
         current_password: 現在のパスワード
       item:
         item_name: 商品名
+        new_item_image: 商品画像
         item_details: 商品説明
         category_id: 商品カテゴリ
         stock: 在庫数
@@ -45,3 +46,4 @@ ja:
         invalid_telephone_number: は半角数字と()-のみで入力してください
         invalid_postcode: の書式が正しくありません
         wrong: が正しくありません
+        invalid_image_type: の形式はjpeg・png・gif・bmpにしてください

@@ -100,20 +100,29 @@ footer{
 }
 .item_box{
     width: 150px;
-    height: 250px;
+    height: 200px;
     padding: 5px;
     margin: 5px;
     border: olive 1px solid;
     border-radius: 10px;
     overflow: hidden;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    align-content: space-between;
 }
 .item_box h4{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    margin: 0;
+}
+.item_box img{
+    margin: auto;
 }
 .item_box h6{
-    float: right;
+    text-align: right;
+    margin: 0;
 }
 .paragraph table{
     margin: 10px;

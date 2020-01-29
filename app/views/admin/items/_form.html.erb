@@ -4,6 +4,10 @@
         <td><%= form.text_field :item_name %>
     </tr>
     <tr>
+        <th><%= form.label :new_item_image %></th>
+        <td><%= form.file_field :new_item_image %></td>
+    </tr>
+    <tr>
         <th><%= form.label :item_details %></th>
         <td><%= form.text_area :item_details, rows: 3 %></td>
     </tr>
