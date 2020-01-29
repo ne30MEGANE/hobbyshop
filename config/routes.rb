@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    root "items#index"
+    root "items#top"
     get "login" => "sessions#new"
     post "login" => "sessions#create"
     delete "logout" => "sessions#destroy"
@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     resources :items do
       get "search", on: :collection
       get "select", on: :collection
+      get "top", on: :collection
       resources :reviews
     end
     resources :categories

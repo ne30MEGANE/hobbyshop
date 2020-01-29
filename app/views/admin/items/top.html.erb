@@ -1,0 +1,19 @@
+<% #管理者トップページ %>
+
+<div class="paragraph">
+    <p>
+        管理者用トップページです<br>
+        下の各リンクから様々な操作を行うことができます
+    </p>
+</div>
+
+<div>
+    <ul>
+        <%= menu_link_to "カテゴリ一覧", admin_categories_path %>
+        <%= menu_link_to "カテゴリを追加", new_admin_category_path %>
+        <%= menu_link_to "商品一覧", admin_items_path %>
+        <%= menu_link_to "商品を追加", new_admin_item_path %>
+        <%= menu_link_to "注文一覧", admin_orders_path %>
+        <%= menu_link_to "レビュー一覧", admin_reviews_path %>
+    </ul>
+</div>

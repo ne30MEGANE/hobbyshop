@@ -2,7 +2,11 @@ class Admin::ItemsController < Admin::Base
   before_action :sign_out!
   before_action :admin_login_required
 
-  def index #トップページ
+  def top #トップページ
+    #リンク置いとくだけのページなのでなんもなし
+  end
+
+  def index
     @items = Item.order("releace")
   end
 
