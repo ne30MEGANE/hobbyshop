@@ -19,7 +19,7 @@
         </tr>
         <% @reviews.each do |r| %>
             <tr>
-                <td><%= Item.find(r.item_id).item_name %></td>
+                <td><%= link_to Item.find(r.item_id).item_name, Item.find(r.item_id) %></td>
                 <td><%= r.score %></td>
                 <td><%= r.text %></td>
                 <td><%= link_to "削除", r, method: :delete, data: {confirm: "レビューを削除しますか"} %></td>
