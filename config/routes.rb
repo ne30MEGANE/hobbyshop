@@ -9,10 +9,7 @@ Rails.application.routes.draw do
     get "select", on: :collection
     resources :reviews, only: [:new, :create]
   end
-  resources :users, only: [:new, :create] do
-    resources :reviews, only: [:index, :destroy]
-    
-  end
+  resources :users, only: [:new, :create]
   resources :reviews
 
   resource :session, only: [:new, :create, :destroy]
@@ -42,7 +39,9 @@ Rails.application.routes.draw do
     resources :items do
       get "search", on: :collection
       get "select", on: :collection
+      resources :reviews
     end
     resources :categories
+    resources :reviews
   end
 end
