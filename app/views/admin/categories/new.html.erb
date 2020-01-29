@@ -9,9 +9,9 @@
 
 <%= render "shared/errors", obj: @category %>
 
-<div class="textbox">
-    <%= form_for @category, url: admin_categories_path do |f| %>
+<%= form_for @category, url: admin_categories_path do |f| %>
+    <div class="category_form">
         <%= f.text_field :category_name %>
         <div class="submit"><%= f.submit "登録" %></div>
-    <% end %>
-</div>
+    </div>
+<% end %>

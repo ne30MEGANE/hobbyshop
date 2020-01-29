@@ -1,0 +1,67 @@
+/* フォーム */
+input[type='text'], input[type='password'], input[type='number']{
+    height: 18pt;
+    vertical-align: middle;
+    border-radius: 5px;
+    border: olive 1px solid;
+    padding: 6px;
+    margin: 10px;
+    font-size: 10pt;
+}
+input[type='text']:focus, input[type='password']:focus, input[type='number']:focus{
+    border: yellowgreen 1px solid;
+    box-shadow: 0 0 3px 1px rgba(100,200,100,.5);
+}
+/* エラーある時のやつ */
+.field_with_errors input[type='text'], .field_with_errors input[type='password'], .field_with_errors input[type='number']{
+    box-shadow: 0 0 3px 1px  rgb(236, 60, 60);
+    border: crimson 1px solid;
+}
+/* 決定ボタン */
+.submit{
+    text-align: right;
+}
+input[type='submit']{
+    margin: 7px;
+    font-size: 12pt;
+    background-color: olivedrab;
+    border-style: outset;
+    border-color: #505000;
+    border-radius: 10px;
+    padding: 4px 9px;
+    color: whitesmoke;
+    transition: 0.2s;
+    cursor: pointer;
+}
+input[type='submit']:hover{
+    border-style: solid;
+    border-color: #404000;
+    background-color: #707000;
+}
+/* カートに追加ボタンのところ */
+.cart_form form {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+.cart_form input[type='number']{
+    vertical-align: middle;
+    width: 60px;
+    text-align: right;
+}
+/* カテゴリー追加フォームのところ */
+.category_form {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+/* ログインフォーム */
+.login_form {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}

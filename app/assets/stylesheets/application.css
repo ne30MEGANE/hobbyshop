@@ -40,23 +40,6 @@ footer{
     color: whitesmoke;
     text-align: center;
 }
-input[type='submit']{
-    margin: 7px;
-    font-size: 12pt;
-    background-color: olivedrab;
-    border-style: outset;
-    border-color: #505000;
-    border-radius: 10px;
-    padding: 4px 9px;
-    color: whitesmoke;
-    transition: 0.2s;
-    cursor: pointer;
-}
-input[type='submit']:hover{
-    border-style: solid;
-    border-color: #404000;
-    background-color: #707000;
-}
 /* アラート */
 .alert{
     color: tomato;
@@ -82,26 +65,6 @@ input[type='submit']:hover{
 .account-menu a{
     color: black;
 }
-.textbox{
-    position: relative;
-    padding: 15px 5%;
-}
-.textbox input[type='submit']{
-    margin: 7px;
-    background-color: olivedrab;
-    border-style: outset;
-    border-color: #505000;
-    border-radius: 10px;
-    padding: 7px;
-    color: whitesmoke;
-    transition: 0.2s;
-    cursor: pointer;
-}
-.textbox input[type='submit']:hover{
-    border-style: solid;
-    border-color: #404000;
-    background-color: #707000;
-}
 .nav{
     text-align: center;
     list-style-type: none;
@@ -115,25 +78,7 @@ input[type='submit']:hover{
 .nav form{
     display: inline;
 }
-.nav form input[type='text']{
-    height: 18pt;
-    vertical-align: middle;
-    border-radius: 5px;
-    border: olive 1px solid;
-    padding: 3px;
-}
-.nav form input[type='text']:focus{
-    border: yellowgreen 1px solid;
-    box-shadow: 0 0 3px 1px rgba(100,200,100,.5);
-}
-.nav form input[type='submit']{
-    font-weight: bold;
-    background: none;
-    border: none;
-    color: seagreen;
-    font-size: 18pt;
-    cursor: pointer;
-}
+
 .nav li{
     display: inline;
     padding: 3px 10px;
@@ -178,57 +123,6 @@ input[type='submit']:hover{
     border-radius: 5px;
     background-color: palegreen;
     color: #202000;
-}
-.paragraph form input[type='number']{
-    vertical-align: middle;
-    border-radius: 5px;
-    border: olive 1px solid;
-    padding: 3px;
-    text-align: right;
-    font-weight: bold;
-    font-size: 10pt;
-    margin: 10px;
-}
-.paragraph form input[type='number']:focus{
-    border: yellowgreen 1px solid;
-    box-shadow: 0 0 3px 1px rgba(100,200,100,.5);
-}
-.paragraph form input[type='submit']{
-    margin: 7px;
-    background-color: olivedrab;
-    border-style: outset;
-    border-color: #505000;
-    border-radius: 5px;
-    padding: 3px;
-    color: whitesmoke;
-    transition: 0.2s;
-    cursor: pointer;
-}
-.paragraph form input[type='submit']:hover{
-    border-style: solid;
-    border-color: #404000;
-    background-color: #707000;
-}
-
-/* フォーム */
-input[type='text'], input[type='password'], input[type='number']{
-    height: 18pt;
-    align-content: center;
-    vertical-align: middle;
-    border-radius: 5px;
-    border: olive 1px solid;
-    padding: 6px;
-}
-input[type='text']:focus, input[type='password']:focus, input[type='number']:focus{
-    border: yellowgreen 1px solid;
-    box-shadow: 0 0 3px 1px rgba(100,200,100,.5);
-}
-.field_with_errors input[type='text'], .field_with_errors input[type='password'], .field_with_errors input[type='number']{
-    box-shadow: 0 0 3px 1px  rgb(236, 60, 60);
-    border: crimson 1px solid;
-}
-.submit{
-    text-align: right;
 }
 
 /* エラー表示 */

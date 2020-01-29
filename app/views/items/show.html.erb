@@ -28,13 +28,15 @@
     <p>在庫が残りわずかの商品です！</p>
   <% end %>
 
-  <% if @item.stock != 0 %>
-    <%= form_tag '/add_item' do %>
-      <%= hidden_field_tag(:item_id, @item.id) %>
-      <%= number_field_tag "quantitiy", 1, min: 1 %>
-      <%= submit_tag "カートに追加" %>
+  <div class="cart_form">
+    <% if @item.stock != 0 %>
+      <%= form_tag '/add_item' do %>
+        <%= hidden_field_tag(:item_id, @item.id) %>
+        <%= number_field_tag "quantitiy", 1, min: 1 %>
+        <%= submit_tag "カートに追加" %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
 
 <h3>この商品のレビュー</h3>
