@@ -28,6 +28,10 @@ main{
     border-left: darkgreen solid 5px;
     padding: 5px 3px;
 }
+h2{
+    border-bottom: darkgreen dotted 7px;
+    padding-left: 10px;
+}
 footer{
     text-align: center;
 }
@@ -91,40 +95,6 @@ footer{
     font-size: 28pt;
     color: olivedrab;
 }
-/* 商品概要 */
-.items{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    padding-top: 2%;
-}
-.item_box{
-    width: 150px;
-    height: 200px;
-    padding: 5px;
-    margin: 5px;
-    border: olive 1px solid;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    align-content: space-between;
-}
-.item_box h4{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin: 0;
-}
-.item_box img{
-    margin: auto;
-}
-.item_box h6{
-    text-align: right;
-    margin: 0;
-}
-
 /* エラー表示 */
 #errors {
     width: 60%;
