@@ -27,7 +27,7 @@ class Item < ApplicationRecord
         allow_blank: true,
         greater_than: 0
     }
-  validates if: :new_item_image do
+  validate if: :new_item_image do
     if new_item_image.respond_to?(:content_type)
       unless new_item_image.content_type.in?(ALLOWED_CONTENT_TYPES)
         errors.add(:new_item_image, :invalid_image_type)
