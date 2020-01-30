@@ -3,7 +3,9 @@ class CartsController < ApplicationController
     before_action :remove_errors, only: :add_item
 
     def show
-        @details = current_cart.details.order("item_id") 
+        @details = current_cart.details.order("item_id")
+        @stock_over = check_stock()
+
     end
     
     def add_item
@@ -35,5 +37,17 @@ class CartsController < ApplicationController
     end
     def remove_errors #ブラウザでnumberフィールドのmin消したりとか意地悪いことされたとき用
         session.delete(:errors)
+    end
+    def check_stock
+        items_id = []
+        @details = current_cart.details
+        @details.each do |detail|
+            kosuu = detail.quantitiy
+            stock = Item.find(detail.item_id).stock
+            if kosuu > stock
+                items_id.push(detail.item_id)
+            end
+        end
+        items_id #在庫が足りない商品のID一覧を配列で返す
     end
 end

@@ -10,6 +10,17 @@
   </p>
 </div>
 <% if @details.present? %>
+  <% if @stock_over.present? %>
+    <div>
+      <p>以下の商品の注文数が在庫数を超えています</p>
+      <p>恐れ入りますが在庫数を超えての注文はお受けすることができません</p>
+      <ul>
+        <% @stock_over.each do |s| %>
+          <li><%= Item.find(s).item_name %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
     <table>
       <tr>
         <th>商品名</th><th>個数</th><th>単価</th><th colspan="2">操作</th>
@@ -39,7 +50,11 @@
     <hr>
     <div class="pay">
       <h3>合計金額：<%= $total_pay %>円<h3>
-      <div class="submit"><%= link_to "購入へ進む", new_order_path %></div>
+      <% if @stock_over.present? %>
+        <p>注文数が在庫数を超えている商品があるため、注文確定に進むことができません</p>
+      <% else %>
+        <div class="submit"><%= link_to "購入へ進む", new_order_path %></div>
+      <% end %>
     </div>
 
 <% else %>
