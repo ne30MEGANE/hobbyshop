@@ -33,5 +33,9 @@ module Hobbyshop
     config.time_zone = "Tokyo"
     config.i18n.default_locale = :ja
     config.action_controller.permit_all_parameters = true
+
+    config.exceptions_app = ->(env) do
+      ErrorsController.action(:show).call(env)
+    end
   end
 end
