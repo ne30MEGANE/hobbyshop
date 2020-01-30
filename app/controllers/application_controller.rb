@@ -18,13 +18,14 @@ class ApplicationController < ActionController::Base
     class LoginRequired < StandardError; end
     class Forbidden < StandardError; end
 
-    if Rails.env.production? || ENV["RESCUE_EXCEPTIONS"]
-        rescue_from StandardError, with: :rescue_internal_server_error
-        rescue_from ActiveRecord::RecordNotFond, with: :rescue_not_found
-        rescue_from ActionController::ParameterMissing, with: :rescue_bad_request
-    end
-    rescue_from LoginRequired, with: :rescue_login_required
-    rescue_from Forbidden, with: :rescue_forbidden
+	if Rails.env.production? || ENV["RESCUE_EXCEPTIONS"]
+		rescue_from StandardError, with: :rescue_internal_server_error
+		rescue_from ActiveRecord::RecordNotFound, with: :rescue_not_found
+		rescue_from ActionController::ParameterMissing, with: :rescue_bad_request
+	end
+
+	rescue_from LoginRequired, with: :rescue_login_required
+	rescue_from Forbidden, with: :rescue_forbidden
     
     private def login_required
         raise LoginRequired unless signed_in?
