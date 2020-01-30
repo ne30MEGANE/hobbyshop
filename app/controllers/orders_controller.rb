@@ -13,7 +13,14 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(params[:order])
-    @order.save
+    @details = current_cart.details
+    if @order.save
+      @details.each do |d|
+        stock = Item.find(d.item_id).stock
+        kosuu = d.quantitiy
+        Item.find(d.item_id).update(stock: stock-kosuu)
+      end
+    end
     session.delete(:cart_id)
   end
 
