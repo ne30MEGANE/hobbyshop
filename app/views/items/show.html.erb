@@ -46,6 +46,10 @@
         <%= number_field_tag "quantitiy", 1, min: 1 %>
         <%= submit_tag "カートに追加" %>
       <% end %>
+    <% else %>
+      <p style="text-align: right; color: #ff6347;">
+        こちらの商品は現在売り切れとなっております
+      </p>
     <% end %>
   </div>
 </div>
