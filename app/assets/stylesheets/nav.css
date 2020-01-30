@@ -1,0 +1,65 @@
+/* ヘッダー */
+.title a{
+    text-decoration: none;
+    font-size: 28pt;
+    color: olivedrab;
+}
+.account-menu{
+    text-align: right;
+    list-style-type: none;
+    font-weight: bold;
+}
+.account-menu li{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 7px;
+}
+.account-menu a{
+    color: black;
+}
+.nav{
+    list-style-type: none;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.nav a{
+    text-decoration: none;
+    color: seagreen;
+}
+.nav ul{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav li{
+    list-style: none;
+    padding: 3px 10px;
+}
+.hidden_show {
+    padding: 20px;
+    margin: 1% 10%;
+    background-color: whitesmoke;
+}
+/* 隠したり出したりするやつ */
+.nav label{
+    float: left;
+    text-align: left;
+    padding: 5px;
+    font-size: 14pt;
+    cursor: pointer;
+}
+.nav input[type="checkbox"]{
+    display: none;
+}
+.nav .hidden_show{
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+.nav input[type="checkbox"]:checked ~ .hidden_show{
+    opacity: 1;
+    height: auto;
+}

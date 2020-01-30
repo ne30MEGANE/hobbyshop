@@ -55,46 +55,6 @@ footer{
     text-align: center;
     color: dimgray;
 }
-/* ヘッダー */
-.account-menu{
-    text-align: right;
-    list-style-type: none;
-    font-weight: bold;
-}
-.account-menu li{
-    display: inline-block;
-    vertical-align: middle;
-    margin: 7px;
-}
-.account-menu a{
-    color: black;
-}
-.nav{
-    text-align: center;
-    list-style-type: none;
-    font-weight: bold;
-    font-size: 18pt;
-}
-.nav a{
-    text-decoration: none;
-    color: seagreen;
-}
-.nav form{
-    display: inline;
-}
-
-.nav li{
-    display: inline;
-    padding: 3px 10px;
-}
-.nav li:hover{
-    border-bottom: forestgreen 4px solid;
-}
-.title a{
-    text-decoration: none;
-    font-size: 28pt;
-    color: olivedrab;
-}
 /* エラー表示 */
 #errors {
     width: 60%;

@@ -20,14 +20,18 @@
   <% if @header #ヘッダーメニューを表示させたくないページに設定してある変数%>
   <% else %>
     <div class="nav">
-      <ul>
-        <%= form_tag :search_items, method: :get, class: "search" do %>
-          <li><%= text_field_tag "q", params[:q], placeholder: "キーワードを入力" %><%= submit_tag "キーワードで検索" %></li>
-        <% end %>
-        <%= form_tag :select_items, method: :get, class: "select" do %>
-          <li><%= select_tag "c", options_for_select(options, ''), include_blank: true %><%= submit_tag "カテゴリで絞り込む" %></li>
-        <% end %>
-      </ul>
+      <label for="l1">商品検索メニューはこちらをクリック</label>
+      <input id="l1" type="checkbox" />
+      <div class="hidden_show">
+        <ul>
+          <%= form_tag :search_items, method: :get, class: "search" do %>
+            <li><%= text_field_tag "q", params[:q], placeholder: "キーワードを入力" %><%= submit_tag "キーワードで検索" %></li>
+          <% end %>
+          <%= form_tag :select_items, method: :get, class: "select" do %>
+            <li><%= select_tag "c", options_for_select(options, ''), include_blank: true %><%= submit_tag "カテゴリで絞り込む" %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 <% elsif controller.kind_of?(Admin::Base) #管理者ログインのとき %>
@@ -38,18 +42,18 @@
           data: { confirm: "サインアウトしますか？" } %>
     </ul>
     <div class="nav">
-      <ul>
-        <%= form_tag :search_admin_items, method: :get, class: "search" do %>
-          <li><%= text_field_tag "q", params[:q], placeholder: "キーワードを入力" %><%= submit_tag "キーワードで検索" %></li>
-        <% end %>
-        <%= form_tag :select_admin_items, method: :get, class: "select" do %>
-          <li><%= select_tag "c", options_for_select(options, ''), include_blank: true %><%= submit_tag "カテゴリで絞り込む" %></li>
-        <% end %>
-        <%= menu_link_to "カテゴリ一覧", admin_categories_path %>
-        <%= menu_link_to "商品を追加する", new_admin_item_path %>
-        <%= menu_link_to "注文一覧", admin_orders_path %>
-        <%= menu_link_to "レビュー一覧", admin_reviews_path %>
-      </ul>
+      <label for="l1">商品検索メニューはこちら</label>
+        <input id="l1" type="checkbox" />
+        <div class="hidden_show">
+          <ul>
+            <%= form_tag :search_admin_items, method: :get, class: "search" do %>
+              <li><%= text_field_tag "q", params[:q], placeholder: "キーワードを入力" %><%= submit_tag "キーワードで検索" %></li>
+            <% end %>
+            <%= form_tag :select_admin_items, method: :get, class: "select" do %>
+              <li><%= select_tag "c", options_for_select(options, ''), include_blank: true %><%= submit_tag "カテゴリで絞り込む" %></li>
+            <% end %>
+          </ul>
+        </div>
     </div>
   <% end %>
 <% else #ログインしていないとき %>
@@ -62,15 +66,19 @@
     <% if @header #ヘッダーメニューを表示させたくないページに設定してある変数%>
     <% else %>
       <div class="nav">
-        <ul>
-          <%= form_tag :search_items, method: :get, class: "search" do %>
-            <li><%= text_field_tag "q", params[:q], placeholder: "キーワードを入力" %><%= submit_tag "キーワードで検索" %></li>
-          <% end %>
-          <%= form_tag :select_items, method: :get, class: "select" do %>
-            <li><%= select_tag "c", options_for_select(options, ''), include_blank: true %><%= submit_tag "カテゴリで絞り込む" %></li>
-          <% end %>
-        </ul>
-      </div>
+        <label for="l1">商品検索メニューはこちらをクリック</label>
+        <input id="l1" type="checkbox" />
+        <div class="hidden_show">
+          <ul>
+            <%= form_tag :search_items, method: :get, class: "search" do %>
+              <li><%= text_field_tag "q", params[:q], placeholder: "キーワードを入力" %><%= submit_tag "キーワードで検索" %></li>
+            <% end %>
+            <%= form_tag :select_items, method: :get, class: "select" do %>
+              <li><%= select_tag "c", options_for_select(options, ''), include_blank: true %><%= submit_tag "カテゴリで絞り込む" %></li>
+            <% end %>
+          </ul>
+        </div>
+    </div>
     <% end %>
   <% end %>
 <% end %>
