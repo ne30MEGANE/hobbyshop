@@ -9,7 +9,7 @@ class Admin::OrdersController < Admin::Base
   def show
     @order = Order.find(params[:id])
     @details = Detail.where(cart_id: @order.cart_id)
-    @user = User.find(@order.user_id)
+    @user = User.find_by(id: @order.user_id)
   end
 
   def delivery #発送管理

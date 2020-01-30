@@ -20,7 +20,13 @@
         <% @reviews.each do |r| %>
             <tr>
                 <td><%= link_to Item.find(r.item_id).item_name , admin_item_path(Item.find(r.item_id)) %></td>
-                <td><%= User.find(r.user_id).user_name %> / <%= User.find(r.user_id).nickname %></td>
+                <td>
+                    <% if User.find_by(id: r.user_id).present? %>
+                        <%= User.find_by(id: r.user_id).user_name %> / <%= User.find_by(id: r.user_id).nickname %>
+                    <% else %>
+                        退会したユーザー
+                    <% end %>
+                </td>
                 <td><%= r.score %></td>
                 <td><%= r.text %></td>
                 <td><%= link_to "削除", admin_review_path(r) , method: :delete, data: {confirm: "レビューを削除しますか"} %></td>

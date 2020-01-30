@@ -72,7 +72,14 @@
 <div>
   <% @item.reviews.each do |r| %>
     <div class="review">
-      <h4><%= User.find(r.user_id).nickname %>さん：<%= stars[r.score] %></h4>
+      <h4>
+        <% if User.find_by(id: r.user_id).present? %>
+          <%= User.find_by(id: r.user_id).nickname %>さん
+        <% else %>
+          退会したユーザー
+        <% end %>
+          ：<%= stars[r.score] %>
+      </h4>
       <p><%= r.text %></p>
     </div>
   <% end %>

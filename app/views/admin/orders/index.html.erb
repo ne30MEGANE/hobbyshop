@@ -27,29 +27,35 @@
             <tr>
                 <td><%= link_to "#{order.id}", admin_order_path(order) %></td>
                 <td><%= "#{order.time.strftime("%Y年%m月%d日 %H時%M分")}" %></td>
-                <td><%= User.find(order.user_id).user_name %> 様</td>
-                <td>
-                    <% if order.cancel? %>
-                        キャンセル
-                    <% else %>
-                        <% if order.delivery? %>
-                            発送完了
-                        <% else %>
-                            発送準備中
-                        <% end %>
-                    <% end %>
-                </td>
-                <td>
-                    <% if order.delivery? %>
-                        <%= link_to "発送完了を取り消す", delivery_admin_order_path(order), method: :patch, data: {confirm: "発送済みを取り消しますか？"} %>
-                    <% else %>
+                <% if User.find_by(id: order.user_id) %>
+                    <td><%= User.find(order.user_id).user_name %> 様</td>
+                    <td>
                         <% if order.cancel? %>
-                            -
+                            キャンセル
                         <% else %>
-                            <%= link_to "発送完了", delivery_admin_order_path(order), method: :patch, data: {confirm: "発送済みにしますか？"} %>
+                            <% if order.delivery? %>
+                                発送完了
+                            <% else %>
+                                発送準備中
+                            <% end %>
                         <% end %>
-                    <% end %>
-                </td>
+                    </td>
+                    <td>
+                        <% if order.delivery? %>
+                            <%= link_to "発送完了を取り消す", delivery_admin_order_path(order), method: :patch, data: {confirm: "発送済みを取り消しますか？"} %>
+                        <% else %>
+                            <% if order.cancel? %>
+                                -
+                            <% else %>
+                                <%= link_to "発送完了", delivery_admin_order_path(order), method: :patch, data: {confirm: "発送済みにしますか？"} %>
+                            <% end %>
+                        <% end %>
+                    </td>
+                <% else %>
+                    <td>退会したユーザー</td>
+                    <td></td>
+                    <td></td>
+                <% end %>
             </tr>
         <% end %>
     </table>
