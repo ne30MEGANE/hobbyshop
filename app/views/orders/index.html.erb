@@ -39,7 +39,7 @@
                         <% unless order.delivery? #発送済みじゃないとき %>
                             <%= link_to "キャンセル", cancel_order_path(order), method: :patch, data: {confirm: "本当にキャンセルしますか？"} %>
                         <% else %>
-                            未発送
+                            -
                         <% end %>
                     <% end %>
                 </td>
